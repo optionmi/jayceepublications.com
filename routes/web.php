@@ -3,8 +3,19 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::name('web.')->group(function () {
+
+    Route::get('/', function () {
+        return view('web.home');
+    })->name('home');
+
+    Route::get('/about', function () {
+        return view('web.about');
+    })->name('about');
+
+    Route::get('/contact', function () {
+        return view('web.contact');
+    })->name('contact');
 });
 
 Route::get('/dashboard', function () {
@@ -17,4 +28,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
