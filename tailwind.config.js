@@ -13,10 +13,14 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                lora: ["Lora", "serif"],
+                montserrat: ["Montserrat", "sans-serif"],
+                "open-sans": ["Open-Sans", "sans-serif"],
             },
 
             colors: {
                 navy: "#001F3F",
+                "dark-navy": "#001A33",
                 brightOrange: "#FFA500",
             },
         },

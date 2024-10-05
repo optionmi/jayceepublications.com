@@ -13,7 +13,10 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="{{ asset('jquery/jquery-3.7.1.slim.min.js') }}"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/owl.css', 'resources/js/owl.carousel.js'])
+    @yield('top-scripts')
+
 </head>
 
 <body class="font-sans antialiased">
@@ -22,8 +25,8 @@
 
         @yield('main')
 
-        @include('web.partials.footer')
     </div>
+    @include('web.partials.footer')
 </body>
 
 </html>

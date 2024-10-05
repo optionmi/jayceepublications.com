@@ -6,9 +6,13 @@ Alpine.start();
 // Fontawesome
 import "@fortawesome/fontawesome-free/js/all.js";
 
+import "@fontsource/lora";
+import "@fontsource/montserrat";
+import "@fontsource/open-sans";
+
 // Tw-elements
-import { Collapse, Ripple, Tab, initTWE } from "tw-elements";
-initTWE({ Collapse, Ripple, Tab });
+import { Collapse, Ripple, Tab, Dropdown, initTWE } from "tw-elements";
+initTWE({ Collapse, Ripple, Tab, Dropdown });
 
 // Get the button
 const mybutton = document.getElementById("btn-back-to-top");
@@ -40,7 +44,7 @@ var options = {
     prevNextButtons: true,
     pageDots: true,
     setGallerySize: false,
-    autoPlay: 1500,
+    autoPlay: 5000,
     pauseAutoPlayOnHover: false,
     arrowShape: {
         x0: 10,
@@ -54,12 +58,57 @@ var options = {
 
 var carousel = document.querySelector("[data-carousel]");
 var slides = document.getElementsByClassName("carousel-cell");
-var flkty = new Flickity(carousel, options);
+if (carousel) {
+    var flkty = new Flickity(carousel, options);
 
-flkty.on("scroll", function () {
-    flkty.slides.forEach(function (slide, i) {
-        var image = slides[i];
-        var x = ((slide.target + flkty.x) * -1) / 3;
-        image.style.backgroundPosition = x + "px";
+    flkty.on("scroll", function () {
+        flkty.slides.forEach(function (slide, i) {
+            var image = slides[i];
+            var x = ((slide.target + flkty.x) * -1) / 3;
+            image.style.backgroundPosition = x + "px";
+        });
+    });
+}
+
+// Swiperjs
+import Swiper from "swiper";
+
+const swiper = new Swiper(".swiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
+// Add zoom and background color change on active slide
+swiper.on("slideChangeTransitionEnd", () => {
+    const slides = document.querySelectorAll(".swiper-slide");
+    slides.forEach((slide) => {
+        if (slide.classList.contains("swiper-slide-active")) {
+            slide
+                .querySelector(".card")
+                .classList.add(
+                    "bg-blue-500",
+                    "transform",
+                    "scale-105",
+                    "text-white"
+                );
+        } else {
+            slide
+                .querySelector(".card")
+                .classList.remove(
+                    "bg-blue-500",
+                    "transform",
+                    "scale-105",
+                    "text-white"
+                );
+        }
     });
 });

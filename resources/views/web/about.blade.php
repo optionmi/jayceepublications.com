@@ -1,104 +1,142 @@
 @extends('layouts.web')
 @section('main')
-    <div class="container px-4 py-10 mx-auto">
-        <!-- Strip 1: Engaging Headline -->
-        <div class="mb-10 text-center">
-            <h1 class="text-4xl font-bold text-gray-800">
-                Our Story: A Journey of Passion, Purpose, and Progress
-            </h1>
-        </div>
+    <section class="bg-brightOrange text-dark-navy">
+        <div class="container py-10 mx-auto sm:px-4">
+            <!-- Strip 1: Engaging Headline -->
+            <div class="mb-10 text-center">
+                <h1 class="text-4xl font-bold font-montserrat">
+                    Our Journey: Fueled by Passion, Driven by Purpose, Focused on Progress
+                </h1>
+            </div>
 
-        <!-- Strip 2: About Us Paragraph -->
-        <div class="mb-10">
-            <p class="text-lg text-gray-600">
-                We, the JAY CEE PUBLICATIONS PVT. LTD. are leading Educational Publishers in the field of School Text books,
-                publishing since 1985, our founder and
-                Chairman, Mr. Jagdish Chander Goyal is in the publication field for the last 5 decades. The Company has
-                rapidly grown over a period of time to become one
-                of the leading Educational Publishers in India. We believe that in today's highly competitive world, actions
-                alone mean nothing, unless they are
-                performance driven. At JAY CEE it is our Performance that speaks.
-                <br>
-                <br>
-                Today, JAY CEE has a client base of over 5000 of Schools and Book Sellers all over India. We name a few that
-                include Group of Schools i.e., St.Stephen Group
-                Kolkatta, MBOSE, Bijnore Diocese,Varanasi Diocese, St.Anthony Group Andhra Pradesh, St. Anns'Group of Andhra
-                Pradesh, St Francis Group of Andhra
-                Pradesh, S.D.A Group of Schools of Southern Region, S.D.A Group of Schools of Central Union, Good Shephered
-                Group of School of All India, Don Bosco
-                Group Schools of Assam, Don Bosco Schools Bihar, Sarva Siksha Abhiyan U.T. Daman & Diu, Jullundur Diocese,
-                Barrackpore Diocese and many more are
-                with us.
-                <br>
-                <br>
-                <br>
-                We are pleased to inform you that we are associated with famous Educationists like, N.K. Aggarwala, Fr. GA
-                Hess SJ, XLRI, Dr. C.J. Joseph inventor of Moral
-                Science in Indian Education for the First time, P.George, (Council for ICSE), Sr. Mary Prateeti SND, Dr.
-                Balaram Pani Famous Author and Principal in Delhi
-                University, Sujata Shrivastava Callifornia U.S.A, Feiyola Fernando, S Krishnan MA, PGDCA, Lucia Albuquerque,
-                Petra Jurkovic, Mrs. Ruth Harring Ph.d,
-                (Both U.S.A.)Rev.Sister Maurice, SJC, Fr. P Xavier, SDB. Fr. Mathai Vellappallil, SDB, Fr GP Amalraj, Fr.
-                Johnney Pulloppillil, Fr. Jose G. Chakkalakal, TOR, Fr.
-                Marianus Karketta, SJ, K.A. Mathew, Fr. Manoj Vengathanam TOR and many more.
-            </p>
+            <!-- Strip 2: About Us Paragraph -->
+            <div class="mb-10">
+                <p class="text-lg">
+                    SHRI JAGDISH CHANDER GOYAL (J.C. Goyal), our founder and Chairman, began his publishing journey in the
+                    early 1960s, dedicating over SIX DECADES to building a legacy of excellence and innovation. His vision
+                    and leadership have shaped JAY CEE PUBLICATIONS into one of India’s leading educational publishers.
+                    Since 1984, we have proudly delivered high-quality school textbooks, driven by a commitment to
+                    performance and progress in today’s competitive landscape.
+                    <br>
+                    <br>
+                    J.C. Goyal laid the foundation for our success, and in 1984, CO-FOUNDER RAJIV GOYAL joined the company,
+                    bringing fresh insights and ensuring we remained at the forefront of educational innovation. Continuing
+                    the family legacy, ADITYA GOYAL joined the team in 2021, introducing digital advancements and new ideas
+                    to bridge tradition with modernity. Together, they are guiding the future of education, dedicated to
+                    inspiring the next generation of learners.
+                    <br>
+                    <br>
+                    Today, JAY CEE serves over 5,000 schools and booksellers across India, reflecting our unwavering
+                    commitment to education. We are honored to partner with esteemed institutions such as St. Stephen Group
+                    Kolkata, MBOSE, Bijnore Diocese, Varanasi Diocese, St. Anthony Group in Andhra Pradesh, St. Ann’s Group
+                    in Andhra Pradesh, and many others. We proudly support diverse communities in their educational efforts.
+                    <br>
+                    <br>
+                    We are also privileged to collaborate with distinguished educationists such as N.K. Aggarwala, Fr. G A
+                    Hess SJ (XLRI), Dr. C.J. Joseph (who introduced Moral Science in Indian education), P. George (Council
+                    for ICSE), Sr. Mary Pratetei SND, Dr. Balram Pani (Famous Author and Principal at Delhi University),
+                    Sujata Shrivastava (California, U.S.A.), Felcylo Fernando, S Krishnan M.A., PGDCA, Lucia Albuquerque,
+                    Petra Jurkovic, Mrs. Ruth Harring Ph.D. (U.S.A.), Rev. Sister Maurice SJC, Fr. F Xavier SDB, Fr. Mathai
+                    Vellappallil SDB, Ms. Chander Kanta Jain (President Awardee), Ms. Kamlesh Jagnya, Fr. GP Amaralj, Fr.
+                    Johnney Pulloppillil, Fr. Jose G. Chakkalakkal TOR, Fr. Marianus Karketta SJ, K.A. Mathew, Fr. Manoj
+                    Vengathanam TOR, Ms. Kamlesh Kumari, Chandra Kanta Jain, Mrs. Gurpreet Kaur, Seema Aggarwal, Biju Mavra,
+                    Ajit Kumar Rawal, and many others. Their guidance and contributions enrich our continuous innovation and
+                    commitment to maintaining the highest educational standards.
+                    <br>
+                    <br>
+                    Our Health & Physical Education books, authored by Brigadier F.B. Khattri and Col. J.M. Rosemeyer, VSM,
+                    reflect the expertise of these highly regarded professionals, ensuring the quality of these important
+                    resources.
+                    <br>
+                    <br>
+                    At JAY CEE, a dedicated team of writers, editors, and digital content developers work tirelessly to
+                    ensure our books align with the latest NCERT, CBSE, ICSE, or respective state board guidelines. Our
+                    commitment to quality and relevance keeps our publications impactful for students across India.
+                    <br>
+                    <br>
+                    We don’t just publish books; we ignite a passion for learning and pave the way for a brighter future.
+                    Join us on this exciting journey, where every page we turn brings us closer to knowledge, growth, and
+                    boundless possibilities.
+                </p>
+            </div>
         </div>
+    </section>
 
-        <!-- Strip 3: Mission and Vision -->
-        <div class="mb-10 text-center">
-            <h2 class="mb-4 text-3xl font-semibold text-gray-800">Mission and Vision</h2>
-            <p class="text-lg text-gray-600">
-                Our mission is to elevate diverse voices through storytelling. We envision a world where every narrative
-                finds its audience, and every book enriches the reader's experience.
-            </p>
-        </div>
-
-        <!-- Strip 4: Core Values -->
-        <div class="mb-10 text-center">
-            <h2 class="mb-4 text-3xl font-semibold text-gray-800">Core Values</h2>
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div class="p-6 bg-gray-100 rounded-lg shadow">
-                    <h3 class="text-xl font-bold">Innovation</h3>
-                    <p>We're always thinking ahead—pioneering new ideas that push boundaries.</p>
-                </div>
-                <div class="p-6 bg-gray-100 rounded-lg shadow">
-                    <h3 class="text-xl font-bold">Collaboration</h3>
-                    <p>Together, we achieve the extraordinary.</p>
-                </div>
-                <div class="p-6 bg-gray-100 rounded-lg shadow">
-                    <h3 class="text-xl font-bold">Responsibility</h3>
-                    <p>We care about our impact on people and the planet.</p>
+    <section>
+        <div class="container py-10 mx-auto sm:px-4">
+            <!-- Strip 3: Mission and Vision -->
+            <div class="mb-10 text-center">
+                <h2 class="pb-10 text-4xl font-bold text-dark-navy dark:text-white font-montserrat">Mission and Vision</h2>
+                <div class="flex flex-col justify-around gap-5 mt-10 sm:flex-row">
+                    <div
+                        class="w-full p-6 transition-all duration-300 transform rounded-lg shadow cursor-pointer bg-brightOrange sm:w-2/5 hover:shadow-md text-dark-navy">
+                        <h1 class="pt-5 text-3xl font-semibold">Mission</h1>
+                        <p class="p-5 text-lg ">
+                            Our mission is to empower minds and inspire creativity through the written word. We are
+                            dedicated to
+                            providing
+                            high-quality, innovative, and engaging publications that enrich lives, ignite curiosity, and
+                            nurture
+                            knowledge
+                            across diverse audiences. With a commitment to excellence, we strive to be a trusted platform
+                            for
+                            authors,
+                            educators, and readers, promoting lifelong learning and cultural growth.
+                        </p>
+                    </div>
+                    <div
+                        class="w-full p-6 transition-all duration-300 transform rounded-lg shadow cursor-pointer bg-brightOrange sm:w-2/5 hover:shadow-md text-dark-navy">
+                        <h1 class="pt-5 text-3xl font-semibold">Vision</h1>
+                        <p class="p-5 text-lg">
+                            Our vision is to become a global leader in publishing, shaping the future of education,
+                            literature, and storytelling. We aim to create a world where every idea has the power to
+                            influence, every voice is heard, and knowledge flows freely. By championing diverse perspectives
+                            and fostering innovation, we aspire to be at the forefront of positive change in the literary
+                            and educational communities.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Strip 5: Impact or Customer-Centric Focus -->
-        <div class="mb-10 text-center">
-            <h2 class="mb-4 text-3xl font-semibold text-gray-800">Our Impact</h2>
-            <p class="text-lg text-gray-600">
-                We believe in the power of stories to change lives. Through our authors, we have reached thousands of
-                readers, fostering community and understanding through shared experiences.
-            </p>
+    <section class="bg-gray-200 dark:bg-gray-900">
+        <div class="container py-10 mx-auto sm:px-4">
+            <!-- Strip 4: Core Values -->
+            @php
+            @endphp
+            <div class="mb-10 text-center">
+                <h2 class="pb-10 text-4xl font-bold text-dark-navy dark:text-white font-montserrat">Core Values</h2>
+                <div class="flex flex-col flex-wrap justify-center gap-5 my-5 sm:flex-row">
+                    @foreach ($coreValues as $value => $description)
+                        <div
+                            class="w-full p-6 transition-all duration-300 transform rounded-lg shadow cursor-pointer text-dark-navy bg-brightOrange sm:w-1/5 hover:scale-105 hover:shadow-md">
+                            <h3 class="py-5 text-xl font-bold">{{ $value }}</h3>
+                            <p>{{ $description }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Strip 6: Areas of Business -->
-        <div class="mb-10 text-center">
-            <h2 class="mb-4 text-3xl font-semibold text-gray-800">Areas of Business</h2>
-            <p class="text-lg text-gray-600">
-                We specialize in fiction, non-fiction, children's literature, and educational materials, reaching audiences
-                worldwide with our diverse catalog.
-            </p>
-        </div>
+    @include('web.partials.authors')
 
-        <!-- Strip 7: Call-to-Action -->
-        <div class="text-center">
-            <h2 class="mb-4 text-3xl font-semibold text-gray-800">Join Our Journey</h2>
-            <p class="mb-4 text-lg text-gray-600">
-                Want to know more? Let’s stay connected! Explore, engage, and become part of our story.
-            </p>
-            <a href="/contact" class="px-4 py-2 text-white transition bg-blue-500 rounded-lg hover:bg-blue-600">
-                Get in Touch
-            </a>
+    <section>
+        <div class="container py-10 mx-auto sm:px-4">
+            <!-- Strip 7: Call-to-Action -->
+            <div class="text-center">
+                <h2 class="mb-5 text-4xl font-bold text-dark-navy dark:text-white font-montserrat">Join Our Journey</h2>
+                <p class="mb-4 text-lg text-gray-600 dark:text-gray-50">
+                    Want to know more? Let’s stay connected! Explore, engage, and become part of our story.
+                </p>
+                <div class="my-10">
+                    <a href="{{ route('web.contact') }}"
+                        class="px-5 py-3 font-bold transition-colors duration-300 ease-in-out rounded-md hover:text-white text-dark-navy bg-brightOrange hover:bg-navy">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 @endsection

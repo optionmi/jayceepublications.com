@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");
 @import "@fortawesome/fontawesome-free/css/all.css";
+@import "/node_modules/swiper/swiper-bundle.min.css";
 
 @tailwind base;
 
@@ -16,6 +16,10 @@
 
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply !font-open-sans;
+}
 
 .overlay {
     position: absolute;
