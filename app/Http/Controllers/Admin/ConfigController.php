@@ -55,9 +55,9 @@ class ConfigController extends Controller
             Config::updateOrCreate(['name' => 'logo'], ['value' => $uploadedFile['name']]);
         }
 
-        if ($request->hasFile('catalog')) {
-            $uploadedFile = $this->uploadFile($request->file('catalog'), 'configs/');
-            Config::updateOrCreate(['name' => 'catalog'], ['value' => $uploadedFile['name']]);
+        if ($request->hasFile('catalogue')) {
+            $uploadedFile = $this->uploadFile($request->file('catalogue'), 'configs/');
+            Config::updateOrCreate(['name' => 'catalogue'], ['value' => $uploadedFile['name']]);
         }
 
         return $this->jsonResponse((bool)$config, 'Configuration updated successfully');

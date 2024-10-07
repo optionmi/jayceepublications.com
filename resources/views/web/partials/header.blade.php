@@ -22,7 +22,7 @@
             <li class="flex items-center gap-2">
                 <i class="fas fa-store"></i>
                 <a
-                    href="{{ asset('configs/' . App\Models\Config::where('name', 'catalog')->value('value')) }}">Catalog</a>
+                    href="{{ asset('configs/' . App\Models\Config::where('name', 'catalogue')->value('value')) }}">Catalogue</a>
             </li>
             @auth
                 <li class="relative" data-twe-dropdown-ref>
@@ -62,7 +62,7 @@
         </ul>
     </div>
 </section>
-<header class="sticky top-0 z-30 h-24 bg-navy">
+<header class="sticky -top-[1px] z-30 h-24 bg-navy">
     <div class="p-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <!-- Main navigation container -->
         <nav class="relative flex items-center justify-between w-full flex-nowrap text-neutral-500 shadow-dark-mild hover:text-neutral-700 focus:text-neutral-700 lg:flex-wrap lg:justify-start"

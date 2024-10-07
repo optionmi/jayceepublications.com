@@ -63,7 +63,7 @@ class ConfigRepository extends BaseRepository implements ConfigRepositoryInterfa
             $config->serial = $start + 1 + $key;
             $config->name = ucfirst($config->name);
             $config->value = $config->name == 'Logo' ? '<img src="' . asset('configs/' . $config->value) . '" class="img-fluid">' : $config->value;
-            $config->value = $config->name == 'Catalog' ? '<a href="' . asset('configs/' . $config->value) . '" target="_blank">View</a>' : $config->value;
+            $config->value = $config->name == 'Catalogue' ? '<a href="' . asset('configs/' . $config->value) . '" target="_blank">View</a>' : $config->value;
             $config->setHidden(['id', 'created_at', 'updated_at']);
             return $config;
         });

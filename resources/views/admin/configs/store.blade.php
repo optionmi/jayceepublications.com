@@ -28,8 +28,8 @@
                             name="email">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="catalog">Catalog</label>
-                        <input class="form-control" id="catalog" type="file" name="catalog">
+                        <label class="form-label" for="catalogue">Catalogue</label>
+                        <input class="form-control" id="catalogue" type="file" name="catalogue">
                     </div>
                 </div>
                 <div class="modal-footer">
