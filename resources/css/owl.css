@@ -150,6 +150,9 @@
         opacity: 1;
         border-radius: 5px;
     }
+    .owl-item.active.center .single-author-item.about {
+        background: #ffa500;
+    }
 
     .owl-item.active.center .single-author-item p {
         color: #ffffff;
