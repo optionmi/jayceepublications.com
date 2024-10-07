@@ -112,3 +112,41 @@ swiper.on("slideChangeTransitionEnd", () => {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Grab the form element
+    const contactForm = document.getElementById("contactForm");
+
+    // Add submit event listener
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Gather form data
+        const formData = new FormData(contactForm);
+        const route = contactForm.getAttribute("action");
+
+        // Send an AJAX request
+        fetch(route, {
+            method: "POST",
+            body: formData,
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Display success or error message based on response
+                const messageDiv = document.getElementById("responseMessage");
+
+                if (!data.error) {
+                    messageDiv.innerHTML = `<p class="bg-green-600 rounded-lg font-bold text-white p-5">${data.message}</p>`;
+                    contactForm.reset(); // Reset form after successful submission
+                } else {
+                    messageDiv.innerHTML = `<p class="bg-red-600 rounded-lg font-bold text-white p-5">${data.message}</p>`;
+                }
+            })
+            .catch((error) => {
+                // Handle any errors
+                const messageDiv = document.getElementById("message");
+                messageDiv.innerHTML = `<p class="bg-red-600 rounded-lg font-bold text-white p-5">An error occurred. Please try again later.</p>`;
+                console.error("Error:", error);
+            });
+    });
+});

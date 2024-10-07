@@ -13,6 +13,7 @@ Route::name('web.')->group(function () {
 
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 });
 
 Route::get('/dashboard', function () {

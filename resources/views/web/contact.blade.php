@@ -10,28 +10,31 @@
 
         <!-- Strip 2: Contact Form -->
         <div class="mb-10">
-            <form class="max-w-lg p-6 mx-auto bg-white rounded-lg shadow dark:bg-gray-800">
+            <form id="contactForm" action="{{ route('web.contact.store') }}" method="POST"
+                class="max-w-lg p-6 mx-auto bg-white rounded-lg shadow dark:bg-gray-800">
+                @csrf
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-medium text-gray-700 dark:text-white">Your Name</label>
-                    <input type="text" id="name"
+                    <input type="text" id="name" name="name"
                         class="block w-full p-2 mt-1 border border-gray-300 rounded dark:text-white dark:bg-gray-800"
                         required>
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-700 dark:text-white">Your Email</label>
-                    <input type="email" id="email"
+                    <input type="email" id="email" name="email"
                         class="block w-full p-2 mt-1 border border-gray-300 rounded dark:text-white dark:bg-gray-800"
                         required>
                 </div>
                 <div class="mb-4">
                     <label for="message" class="block text-sm font-medium text-gray-700 dark:text-white">How Can We
                         Help?</label>
-                    <textarea id="message" rows="4"
+                    <textarea id="message" rows="4" name="message"
                         class="block w-full p-2 mt-1 border border-gray-300 rounded dark:text-white dark:bg-gray-800" required></textarea>
                 </div>
                 <button type="submit" class="px-4 py-2 text-white transition rounded-lg bg-brightOrange hover:bg-navy">
                     Send Us a Message
                 </button>
+                <div id="responseMessage" class="mt-5 text-center"></div>
             </form>
         </div>
 
