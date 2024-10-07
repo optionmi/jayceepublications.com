@@ -86,4 +86,6 @@ class ArticleController extends Controller
         $data = $this->generateDataTableData($this->article);
         return response()->json($data);
     }
+
+    public function toggle() {}
 }

@@ -6,15 +6,18 @@
                 <ul class="flex flex-col gap-2 ms-10">
                     <li class="flex items-center gap-2">
                         <i class="fas fa-phone"></i>
-                        <a href="tel:+919310823224">+91-93108 23224</a>
+                        <a
+                            href="tel:{{ App\Models\Config::where('name', 'phone')->value('value') }}">{{ App\Models\Config::where('name', 'phone')->value('value') }}</a>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-brands fa-whatsapp"></i>
-                        <a href="whatsapp://send?phone=+919310823224">+91-93108 23923</a>
+                        <a
+                            href="whatsapp://send?phone={{ App\Models\Config::where('name', 'whatsapp')->value('value') }}">{{ App\Models\Config::where('name', 'whatsapp')->value('value') }}</a>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:info@jayceepublications.com">info@jayceepublications.com</a>
+                        <a
+                            href="mailto:{{ App\Models\Config::where('name', 'email')->value('value') }}">{{ App\Models\Config::where('name', 'email')->value('value') }}</a>
                     </li>
                 </ul>
             </div>
@@ -63,7 +66,8 @@
 </footer>
 
 <!-- WhatsApp button -->
-<a href="whatsapp://send?phone=+919310823224" data-twe-ripple-init data-twe-ripple-color="light"
+<a href="whatsapp://send?phone={{ App\Models\Config::where('name', 'whatsapp')->value('value') }}" data-twe-ripple-init
+    data-twe-ripple-color="light"
     class="!fixed bottom-20 end-5 rounded-full bg-green-600 flex items-center justify-center w-14 h-14 leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg">
     <i class="fab fa-whatsapp fa-2xl"></i></a>
 

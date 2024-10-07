@@ -25,18 +25,28 @@
         {{-- </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li> --}}
 
 
-        <li class="nav-item"><a class="nav-link" href="{{ route('admin.articles.index') }}">
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.bestsellingSeries.index') }}">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
-                </svg> Articles</a></li>
+                </svg> Bestselling Series</a></li>
 
         <li class="nav-item"><a class="nav-link" href="{{ route('admin.authors.index') }}">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
                 </svg> Authors</a></li>
 
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.articles.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
+                </svg> Articles</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.configs.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
+                </svg> Configurations</a></li>
+
         {{-- @if (!$user->hasRestriction('can_manage_infopages')) --}}
-        <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        {{-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-info') }}"></use>
                 </svg> Web Pages</a>
@@ -48,7 +58,7 @@
                 <li class="nav-item"><a class="nav-link" href="#"><span class="nav-icon"><span
                                 class="nav-icon-bullet"></span></span> Contact Us</a></li>
             </ul>
-        </li>
+        </li> --}}
         {{-- @endif --}}
     </ul>
     <div class="sidebar-footer border-top d-none d-md-flex">

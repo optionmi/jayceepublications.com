@@ -146,11 +146,12 @@
                     Tools</p>
             </div>
             <div class="container px-5 py-2 mx-auto text-lg lg:px-32 text-gray-50">
-                <p>We, the JAY CEE PUBLICATIONS PVT. LTD. are leading Educational Publishers in the field of School Text
-                    books, publishing since 1985, our founder and Chairman, Mr. Jagdish Chander Goyal is in the publication
-                    field for the last 5 decades. The Company has rapidly grown over a period of time to become one of the
-                    leading Educational Publishers in India. We believe that in today's highly competitive world, actions
-                    alone mean nothing, unless they are performance driven. At JAY CEE it is our Performance that speaks.
+                <p>SHRI JAGDISH CHANDER GOYAL (J.C. Goyal) founded JAY CEE PUBLICATIONS in the early 1960s, dedicating over
+                    six decades to educational excellence. With co-founder Rajiv Goyal and the next generation led by Aditya
+                    Goyal, the company continues to innovate, blending tradition with modernity. Serving over 5,000 schools
+                    across India, JAY CEE partners with esteemed institutions and educationists to deliver high-quality
+                    textbooks aligned with the latest NCERT, CBSE, and ICSE guidelines. Committed to inspiring learners, JAY
+                    CEE strives to shape the future of education through passion, progress, and purpose.
                 </p>
                 <div class="flex items-center justify-center my-5">
                     <a class="px-4 py-2 font-semibold border rounded-md shadow-md hover:bg-brightOrange border-brightOrange"

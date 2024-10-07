@@ -6,19 +6,23 @@
         <ul class="flex flex-col sm:flex-row sm:gap-5">
             <li class="flex items-center gap-2">
                 <i class="fas fa-phone"></i>
-                <a href="tel:+919310823224">+91-93108 23224</a>
+                <a
+                    href="tel:{{ App\Models\Config::where('name', 'phone')->value('value') }}">{{ App\Models\Config::where('name', 'phone')->value('value') }}</a>
             </li>
             <li class="flex items-center gap-2">
                 <i class="fas fa-brands fa-whatsapp"></i>
-                <a href="whatsapp://send?phone=+919310823224">+91-93108 23923</a>
+                <a
+                    href="whatsapp://send?phone={{ App\Models\Config::where('name', 'whatsapp')->value('value') }}">{{ App\Models\Config::where('name', 'whatsapp')->value('value') }}</a>
             </li>
             <li class="flex items-center gap-2">
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:info@jayceepublications.com">info@jayceepublications.com</a>
+                <a
+                    href="mailto:{{ App\Models\Config::where('name', 'email')->value('value') }}">{{ App\Models\Config::where('name', 'email')->value('value') }}</a>
             </li>
             <li class="flex items-center gap-2">
                 <i class="fas fa-store"></i>
-                <a href="#">Catalog</a>
+                <a
+                    href="{{ asset('configs/' . App\Models\Config::where('name', 'catalog')->value('value')) }}">Catalog</a>
             </li>
             @auth
                 <li class="relative" data-twe-dropdown-ref>

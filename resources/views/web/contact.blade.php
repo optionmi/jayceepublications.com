@@ -39,11 +39,12 @@
         <div class="mb-10 text-center">
             <h2 class="mb-4 text-3xl font-semibold text-gray-800 dark:text-white">Other Ways to Reach Us</h2>
             <p class="mb-2 text-lg text-gray-600 dark:text-gray-300">
-                Email: <a href="mailto:info@jayceepublications.com"
-                    class="text-brightOrange">info@jayceepublications.com</a>
+                Email: <a href="mailto:{{ App\Models\Config::where('name', 'email')->value('value') }}"
+                    class="text-brightOrange">{{ App\Models\Config::where('name', 'email')->value('value') }}</a>
             </p>
             <p class="mb-2 text-lg text-gray-600 dark:text-gray-300">
-                Phone: <a href="tel:+919310823224" class="text-brightOrange">+91-93108 23224</a>
+                Phone: <a href="tel:{{ App\Models\Config::where('name', 'phone')->value('value') }}"
+                    class="text-brightOrange">{{ App\Models\Config::where('name', 'phone')->value('value') }}</a>
             </p>
             {{-- <p class="mb-2 text-lg text-gray-600">
                 Follow us on social media:

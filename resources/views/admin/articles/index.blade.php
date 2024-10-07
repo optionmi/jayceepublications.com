@@ -7,8 +7,19 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 class="card-title">Articles</h5>
-                        <button class="px-2 py-2 btn btn-primary" type="button" title="Edit" data-coreui-toggle="modal"
-                            data-coreui-target="#articleStore">Create</button>
+                        <div class="gap-4 d-flex align-items-center">
+                            <form action="{{ route('admin.articles.toggle') }}" id="enableArticlesForm">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Enable Articles
+                                    </label>
+                                </div>
+                            </form>
+                            <button class="px-2 py-2 btn btn-primary" type="button" title="Edit"
+                                data-coreui-toggle="modal" data-coreui-target="#articleStore">Create</button>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body table-responsive">
