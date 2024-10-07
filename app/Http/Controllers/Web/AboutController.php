@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Controllers\Controller;
+use App\Models\Author;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AboutController extends Controller
 {
@@ -26,7 +27,7 @@ class AboutController extends Controller
             'We are committed to making environmentally responsible choices, from production processes to business operations, ensuring a positive impact on the world around us.',
         ];
 
-        $authors =  ['Author One', 'Author Two', 'Author Three'];
+        $authors =  Author::get();
 
         return view('web.about', compact('coreValues', 'authors'));
     }
