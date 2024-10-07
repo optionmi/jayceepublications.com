@@ -51,7 +51,7 @@ abstract class Controller
     {
         return response()->json([
             'error' => !$action,
-            'message' => !$action ? 'Error' : $message,
+            'message' => !$action ? 'Error processing request' : $message,
         ], $action ? 200 : 500);
     }
 
