@@ -5,7 +5,8 @@
         <div class="mb-5 text-center">
             <h2 class="text-4xl font-extrabold uppercase text-navy dark:text-white font-montserrat">Bestselling Series
             </h2>
-            <p class="mt-2 text-gray-600 uppercase dark:text-gray-300">Explore Our Most Popular Educational Series.</p>
+            <p class="mt-2 text-lg font-semibold text-gray-600 uppercase dark:text-gray-300">Explore Our Most Popular
+                Educational Series.</p>
         </div>
         <div class="container py-2 mx-auto">
             {{-- <div class="owl-carousel owl-theme">

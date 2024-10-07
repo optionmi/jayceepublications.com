@@ -3,13 +3,13 @@
     <!-- Section Title -->
     <div class="mb-5 text-center">
         <h2 class="text-4xl font-extrabold uppercase text-navy dark:text-white font-montserrat">Our Authors</h2>
-        <p class="mt-2 text-gray-600 uppercase dark:text-gray-300">Our Team of Authors</p>
+        <p class="mt-2 text-lg font-semibold text-gray-600 uppercase dark:text-gray-300">Our Team of Authors</p>
     </div>
     <div class="container py-2 mx-auto">
         <div class="owl-carousel owl-theme" id="authorsCarousel">
             @foreach ($authors as $author)
-                <div class="single-author-item">
-                    <p>{{ $author->about }}</p>
+                <div class="single-author-item {{ Route::currentRouteName() == 'web.about' ? 'about' : '' }}">
+                    <p class="">{{ $author->about }}</p>
                     <div class="info">
                         <img src="{{ asset($author->img ? 'authors/img/' . $author->img : 'coreui/img/default_avatar.png') }}"
                             class="rounded-full shadow" alt="image">

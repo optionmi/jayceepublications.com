@@ -41,7 +41,8 @@
                     Advantages
                     of Jay Cee
                     Publication’s Web Support!</h2>
-                <p class="mt-2 text-gray-600 uppercase dark:text-gray-50">Empowering Your Digital Presence
+                <p class="mt-2 text-lg font-semibold text-gray-600 uppercase dark:text-gray-50">Empowering Your Digital
+                    Presence
                     with Tailored
                     Educational
                     Solutions</p>
@@ -99,7 +100,8 @@
                 </div>
 
             </div>
-            <p class="py-5 text-sm text-center">With Jay Cee Publication's web support, you’re not just maintaining a
+            <p class="py-5 text-xl font-semibold text-center">With Jay Cee Publication's web support, you’re not just
+                maintaining a
                 website - you’re transforming education
                 with innovative digital tools that enhance learning outcomes.</p>
         </div>
@@ -139,10 +141,11 @@
             <!-- Section Title -->
             <div class="mb-5 text-center">
                 <h2 class="text-4xl font-extrabold text-white uppercase font-montserrat">About Us</h2>
-                <p class="mt-2 text-gray-200 uppercase">Inspiring Future Leaders Through Engaging and Innovative Learning
+                <p class="mt-2 text-xl font-semibold text-gray-200 uppercase">Inspiring Future Leaders Through Engaging and
+                    Innovative Learning
                     Tools</p>
             </div>
-            <div class="container px-5 py-2 mx-auto lg:px-32 lg:pt-12 text-gray-50">
+            <div class="container px-5 py-2 mx-auto text-lg lg:px-32 text-gray-50">
                 <p>We, the JAY CEE PUBLICATIONS PVT. LTD. are leading Educational Publishers in the field of School Text
                     books, publishing since 1985, our founder and Chairman, Mr. Jagdish Chander Goyal is in the publication
                     field for the last 5 decades. The Company has rapidly grown over a period of time to become one of the
@@ -166,7 +169,8 @@
             <div class="mb-12 text-center">
                 <h2 class="text-4xl font-extrabold uppercase text-navy dark:text-white font-montserrat">News & Happenings
                 </h2>
-                <p class="mt-2 text-gray-600 uppercase dark:text-gray-50">Stay updated with the latest news and events</p>
+                <p class="mt-2 text-lg font-semibold text-gray-600 uppercase dark:text-gray-50">Stay updated with the latest
+                    news and events</p>
             </div>
 
             <!-- News Grid -->
