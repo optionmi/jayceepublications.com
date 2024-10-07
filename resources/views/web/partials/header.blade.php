@@ -106,7 +106,7 @@
                         </li>
                         <li class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" data-twe-nav-item-ref>
                             <a class="{{ request()->routeIs('') ? 'text-white hover:underline decoration-brightOrange lg:px-2' : 'p-0 transition duration-200 hover:underline decoration-brightOrange text-white/60 hover:text-white/80 hover:ease-in-out focus:text-white/80 active:text-white/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2' }}"
-                                href="#" data-twe-nav-link-ref>Web Support</a>
+                                href="/websupport/" data-twe-nav-link-ref>Web Support</a>
                         </li>
                         <li class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" data-twe-nav-item-ref>
                             <a class="{{ request()->routeIs('web.contact') ? 'text-white hover:underline decoration-brightOrange lg:px-2' : 'p-0 transition duration-200 hover:underline decoration-brightOrange text-white/60 hover:text-white/80 hover:ease-in-out focus:text-white/80 active:text-white/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2' }}"

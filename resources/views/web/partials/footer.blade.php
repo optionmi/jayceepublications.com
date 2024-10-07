@@ -37,7 +37,7 @@
                     </li>
                     <li>
                         <a class="{{ request()->routeIs('') ? 'text-white hover:underline decoration-brightOrange lg:px-2' : 'p-0 transition duration-200 hover:underline decoration-brightOrange text-white/60 hover:text-white/80 hover:ease-in-out focus:text-white/80 active:text-white/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2' }}"
-                            href="#">Web Support</a>
+                            href="/websupport/">Web Support</a>
                     </li>
                     <li>
                         <a class="{{ request()->routeIs('web.contact') ? 'text-white hover:underline decoration-brightOrange lg:px-2' : 'p-0 transition duration-200 hover:underline decoration-brightOrange text-white/60 hover:text-white/80 hover:ease-in-out focus:text-white/80 active:text-white/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2' }}"
