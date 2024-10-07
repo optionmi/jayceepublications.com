@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Config;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -87,5 +88,11 @@ class ArticleController extends Controller
         return response()->json($data);
     }
 
-    public function toggle() {}
+    public function toggle(Request $request)
+    {
+        $enableArticles = request()->input('enableArticles') === 'true';
+        $config = Config::firstOrCreate(['name' => 'showArticles'], ['value' => $enableArticles]);
+        $toggle = $config->update(['value' => $enableArticles]);
+        return $this->jsonResponse($toggle, 'Articles ' . ($enableArticles ? 'enabled' : 'disabled') . ' successfully');
+    }
 }

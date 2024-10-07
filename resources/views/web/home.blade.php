@@ -164,33 +164,37 @@
 
     @include('web.partials.authors')
 
-    <section class="py-12 bg-brightOrange">
-        <div class="container px-6 mx-auto">
-            <!-- Section Title -->
-            <div class="mb-12 text-center">
-                <h2 class="text-4xl font-extrabold uppercase text-navy dark:text-white font-montserrat">News & Happenings
-                </h2>
-                <p class="mt-2 text-lg font-semibold text-gray-600 uppercase dark:text-gray-50">Stay updated with the latest
-                    news and events</p>
-            </div>
+    @if (App\Models\Config::where('name', 'showArticles')->value('value'))
+        <section class="py-12 bg-brightOrange">
+            <div class="container px-6 mx-auto">
+                <!-- Section Title -->
+                <div class="mb-12 text-center">
+                    <h2 class="text-4xl font-extrabold uppercase text-navy dark:text-white font-montserrat">News &
+                        Happenings
+                    </h2>
+                    <p class="mt-2 text-lg font-semibold text-gray-600 uppercase dark:text-gray-50">Stay updated with the
+                        latest
+                        news and events</p>
+                </div>
 
-            <!-- News Grid -->
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                <!-- News Cards -->
-                @foreach ($articles as $article)
-                    <div class="overflow-hidden bg-white rounded-lg shadow-lg">
-                        <img class="object-cover w-full h-48"
-                            src="{{ $article->media->first() ? asset('articles/img/' . $article->media->first()->file) : 'https://via.placeholder.com/300x200' }}"
-                            alt="{{ $article->title }}">
-                        <div class="p-6">
-                            <h3 class="mb-2 text-xl font-semibold text-gray-800">{{ $article->title }}</h3>
-                            <div class="mb-4 text-sm text-gray-600">{!! Str::limit($article->content, 100) !!}</div>
-                            <a href="{{ route('web.article.show', $article->id) }}"
-                                class="font-semibold text-indigo-500 hover:text-indigo-600">Read More</a>
+                <!-- News Grid -->
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- News Cards -->
+                    @foreach ($articles as $article)
+                        <div class="overflow-hidden bg-white rounded-lg shadow-lg">
+                            <img class="object-cover w-full h-48"
+                                src="{{ $article->media->first() ? asset('articles/img/' . $article->media->first()->file) : 'https://via.placeholder.com/300x200' }}"
+                                alt="{{ $article->title }}">
+                            <div class="p-6">
+                                <h3 class="mb-2 text-xl font-semibold text-gray-800">{{ $article->title }}</h3>
+                                <div class="mb-4 text-sm text-gray-600">{!! Str::limit($article->content, 100) !!}</div>
+                                <a href="{{ route('web.article.show', $article->id) }}"
+                                    class="font-semibold text-indigo-500 hover:text-indigo-600">Read More</a>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 @endsection

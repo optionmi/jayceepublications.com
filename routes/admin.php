@@ -6,7 +6,6 @@ use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Admin\BestsellingSeriesController;
 
 Route::group(['middleware' => ['auth']], function () {

@@ -8,10 +8,11 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 class="card-title">Articles</h5>
                         <div class="gap-4 d-flex align-items-center">
-                            <form action="{{ route('admin.articles.toggle') }}" id="enableArticlesForm">
+                            <form action="{{ route('admin.articles.toggle') }}" id="enableArticlesForm" method="POST">
+                                @csrf
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="true" id="flexCheckChecked"
-                                        checked>
+                                        {{ App\Models\Config::where('name', 'showArticles')->value('value') ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexCheckChecked">
                                         Enable Articles
                                     </label>

@@ -108,7 +108,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    $("#enableArticlesForm input").on("change", function () {});
+    $("#enableArticlesForm input").on("change", function () {
+        const form = $(this).closest("form");
+        const route = form.attr("action");
+        const method = form.attr("method");
+        const formData = new FormData(form[0]);
+        formData.append("enableArticles", $(this).is(":checked"));
+
+        fetch(route, {
+            method: method,
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.error == true) {
+                    toastr.error(data.message, "Admin Panel");
+                } else {
+                    toastr.success(data.message, "Admin Panel");
+                }
+            });
+    });
 
     // Submit form
     $("form").on("submit", function (e) {
