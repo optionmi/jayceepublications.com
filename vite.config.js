@@ -12,7 +12,6 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/js/owl.js",
                 "resources/js/quill.js",
-                "resources/js/owl.carousel.js",
             ],
             refresh: true,
         }),

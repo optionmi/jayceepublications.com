@@ -294,12 +294,6 @@
       "assets/open-sans-latin-400-normal-Dxjvn725.woff"
     ]
   },
-  "resources/js/owl.carousel.js": {
-    "file": "assets/owl.carousel-l0sNRNKZ.js",
-    "name": "owl.carousel",
-    "src": "resources/js/owl.carousel.js",
-    "isEntry": true
-  },
   "resources/js/owl.js": {
     "file": "assets/owl-DEduZ3eU.js",
     "name": "owl",
