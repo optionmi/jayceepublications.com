@@ -14,7 +14,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('jquery/jquery-3.7.1.slim.min.js') }}"></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/owl.css', 'resources/js/owl.carousel.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/owl.css', 'resources/js/owl.js'])
     @yield('top-scripts')
 
 </head>

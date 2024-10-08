@@ -1,9 +1,9 @@
-<section class="bg-white dark:bg-gray-500 dark:text-white sm:h-12">
+<section class="bg-white dark:bg-brightOrange dark:text-white sm:h-12">
     <div class="flex flex-col items-center justify-between gap-5 p-3 mx-auto sm:flex-row max-w-7xl sm:px-6 lg:px-8">
         <div>
             <h1>Jay Cee Publications</h1>
         </div>
-        <ul class="flex flex-col sm:flex-row sm:gap-5">
+        <ul class="flex flex-wrap justify-between text-sm gap-y-2 sm:gap-5">
             <li class="flex items-center gap-2">
                 <i class="fas fa-phone"></i>
                 <a

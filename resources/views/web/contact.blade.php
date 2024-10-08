@@ -3,7 +3,7 @@
     <div class="container px-4 py-10 mx-auto">
         <!-- Strip 1: Warm, Welcoming Headline -->
         <div class="mb-10 text-center">
-            <h1 class="text-4xl font-bold text-gray-800 dark:text-white font-montserrat">
+            <h1 class="text-2xl font-bold text-gray-800 sm:text-4xl dark:text-white font-montserrat">
                 We’d Love to Hear From You!
             </h1>
         </div>

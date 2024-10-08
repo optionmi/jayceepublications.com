@@ -26,7 +26,6 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/articles-data', [ArticleController::class, 'dataTable'])->name('articles.datatable');
   Route::post('/articles-toggle', [ArticleController::class, 'toggle'])->name('articles.toggle');
 
-
   // Configs
   Route::resource('configs', ConfigController::class);
   Route::get('/configs-data', [ConfigController::class, 'dataTable'])->name('configs.datatable');

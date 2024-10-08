@@ -1,5 +1,5 @@
 <footer class="text-white bg-dark-navy">
-    <div class="container py-12 mx-auto">
+    <div class="container py-20 mx-auto">
         <div class="flex flex-col gap-10 sm:gap-5 sm:flex-row">
             <div class="w-full sm:w-1/3">
                 <h1 class="px-5 pb-5 text-2xl font-bold text-center sm:text-start">Jay Cee Publications</h1>
@@ -45,16 +45,13 @@
                     </li>
                 </ul>
             </div>
-            {{-- <div class="w-full sm:w-1/3">
-                <h1 class="w-full mx-auto text-xl text-center sm:w-1/2">We're on Social Networks. Follow us & get in
-                    touch!</h1>
-                <ul class="flex justify-center w-full gap-5 my-5">
-                    <li><a href="#"><i class="fa-brands fa-facebook fa-2xl"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-x-twitter fa-2xl"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube fa-2xl"></i></a></li>
-                </ul>
-            </div> --}}
+            <div class="flex items-center justify-center w-full text-center sm:w-1/3">
+                <div>
+                    <h1 class="w-full mx-auto text-xl sm:w-1/2">Get in touch!</h1>
+                    <a class="inline-block my-5 text-lg text-brightOrange"
+                        href="mailto:{{ App\Models\Config::where('name', 'email')->value('value') }}">{{ App\Models\Config::where('name', 'email')->value('value') }}</a>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -4,7 +4,7 @@
         <div class="container py-10 mx-auto sm:px-4">
             <!-- Strip 1: Engaging Headline -->
             <div class="mb-10 text-center">
-                <h1 class="text-4xl font-bold font-montserrat">
+                <h1 class="text-2xl font-bold sm:text-4xl font-montserrat">
                     Our Journey: Fueled by Passion, Driven by Purpose, Focused on Progress
                 </h1>
             </div>
