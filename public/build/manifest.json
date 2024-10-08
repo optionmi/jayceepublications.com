@@ -3,20 +3,6 @@
     "file": "assets/_commonjsHelpers-Cpj98o6Y.js",
     "name": "_commonjsHelpers"
   },
-  "_owl.carousel-!~{00a}~.js": {
-    "file": "assets/owl-Ck0sYAPQ.css",
-    "src": "_owl.carousel-!~{00a}~.js"
-  },
-  "_owl.carousel-BevosbPm.js": {
-    "file": "assets/owl.carousel-BevosbPm.js",
-    "name": "owl.carousel",
-    "css": [
-      "assets/owl-Ck0sYAPQ.css"
-    ],
-    "assets": [
-      "assets/owl.video.play-BJo37keB.png"
-    ]
-  },
   "node_modules/@fontsource/lora/files/lora-cyrillic-400-normal.woff": {
     "file": "assets/lora-cyrillic-400-normal-D1XS6rs-.woff",
     "src": "node_modules/@fontsource/lora/files/lora-cyrillic-400-normal.woff"
@@ -235,12 +221,12 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-CaXiSGu6.css",
+    "file": "assets/app-BZIs9ayE.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/owl.css": {
-    "file": "assets/owl-Bi9U8jC-.css",
+    "file": "assets/owl-yq10WJ3K.css",
     "src": "resources/css/owl.css",
     "isEntry": true
   },
@@ -309,21 +295,21 @@
     ]
   },
   "resources/js/owl.carousel.js": {
-    "file": "assets/owl.carousel-Bk7GYdOv.js",
+    "file": "assets/owl.carousel-l0sNRNKZ.js",
     "name": "owl.carousel",
     "src": "resources/js/owl.carousel.js",
-    "isEntry": true,
-    "imports": [
-      "_owl.carousel-BevosbPm.js"
-    ]
+    "isEntry": true
   },
   "resources/js/owl.js": {
-    "file": "assets/owl-Dm7CVPFm.js",
+    "file": "assets/owl-DEduZ3eU.js",
     "name": "owl",
     "src": "resources/js/owl.js",
     "isEntry": true,
-    "imports": [
-      "_owl.carousel-BevosbPm.js"
+    "css": [
+      "assets/owl-Ck0sYAPQ.css"
+    ],
+    "assets": [
+      "assets/owl.video.play-BJo37keB.png"
     ]
   },
   "resources/js/quill.js": {

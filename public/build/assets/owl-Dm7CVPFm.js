@@ -1,1 +1,0 @@
-import"./owl.carousel-BevosbPm.js";$(function(){$("#authorsCarousel").owlCarousel({center:!0,items:3,loop:!0,margin:10,dots:!0,responsive:{0:{items:1},600:{items:3}}}),$("#booksCarousel").owlCarousel({loop:!0,margin:10,nav:!0,responsive:{0:{items:1},600:{items:4},1e3:{items:5}}})});
