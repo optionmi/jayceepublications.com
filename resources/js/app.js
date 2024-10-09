@@ -41,7 +41,7 @@ import Flickity from "flickity";
 
 var options = {
     accessibility: true,
-    prevNextButtons: true,
+    prevNextButtons: false,
     pageDots: true,
     setGallerySize: false,
     autoPlay: 5000,
