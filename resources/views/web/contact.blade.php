@@ -1,6 +1,6 @@
 @extends('layouts.web')
 @section('main')
-    <div class="container px-4 py-10 mx-auto">
+    <div class="container py-10 mx-auto sm:px-20">
         <!-- Strip 1: Warm, Welcoming Headline -->
         <div class="mb-10 text-center">
             <h1 class="text-2xl font-bold text-gray-800 sm:text-4xl dark:text-white font-montserrat">

@@ -16,7 +16,7 @@
     </div>
 
     <section class="py-12 bg-brightOrange">
-        <div class="container px-6 mx-auto">
+        <div class="container mx-auto sm:px-20">
             <!-- Section Title -->
             <div class="mb-12 text-center">
                 <h2 class="text-2xl font-extrabold uppercase sm:text-4xl text-navy dark:text-white font-montserrat">Discover
@@ -30,7 +30,7 @@
                     Educational
                     Solutions</p>
             </div>
-            <div class="my-5 containermx-auto gap-y-5">
+            <div class="container mx-auto my-5 gap-y-5">
                 <div class="owl-carousel owl-theme" id="featuresCarousel">
                     @foreach ($features as $feature)
                         <div
@@ -65,7 +65,7 @@
 
     <!-- About Us -->
     <section class="py-12 text-white bg-navy">
-        <div class="container px-6 mx-auto">
+        <div class="container mx-auto sm:px-20">
             <!-- Section Title -->
             <div class="mb-5 text-center">
                 <h2 class="text-4xl font-extrabold text-white uppercase font-montserrat">About Us</h2>
@@ -94,7 +94,7 @@
 
     @if (App\Models\Config::where('name', 'showArticles')->value('value'))
         <section class="py-12 bg-brightOrange">
-            <div class="container px-6 mx-auto">
+            <div class="container mx-auto sm:px-20">
                 <!-- Section Title -->
                 <div class="mb-12 text-center">
                     <h2 class="text-4xl font-extrabold uppercase text-navy dark:text-white font-montserrat">News &

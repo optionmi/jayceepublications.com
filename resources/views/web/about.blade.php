@@ -1,7 +1,7 @@
 @extends('layouts.web')
 @section('main')
     <section class="bg-brightOrange text-dark-navy">
-        <div class="container py-10 mx-auto sm:px-4">
+        <div class="container py-10 mx-auto sm:px-20">
             <!-- Strip 1: Engaging Headline -->
             <div class="mb-10 text-center">
                 <h1 class="text-2xl font-bold sm:text-4xl font-montserrat">
@@ -63,7 +63,7 @@
     </section>
 
     <section>
-        <div class="container py-10 mx-auto sm:px-4">
+        <div class="container py-10 mx-auto sm:px-20">
             <!-- Strip 3: Mission and Vision -->
             <div class="mb-10 text-center">
                 <h2 class="pb-10 text-4xl font-bold text-dark-navy dark:text-white font-montserrat">Mission and Vision</h2>
@@ -101,7 +101,7 @@
     </section>
 
     <section class="bg-gray-200 dark:bg-gray-900">
-        <div class="container py-10 mx-auto sm:px-4">
+        <div class="container py-10 mx-auto sm:px-20">
             <!-- Strip 4: Core Values -->
             @php
             @endphp
@@ -123,7 +123,7 @@
     @include('web.partials.authors')
 
     <section>
-        <div class="container py-10 mx-auto sm:px-4">
+        <div class="container py-10 mx-auto sm:px-20">
             <!-- Strip 7: Call-to-Action -->
             <div class="text-center">
                 <h2 class="mb-5 text-4xl font-bold text-dark-navy dark:text-white font-montserrat">Join Our Journey</h2>

@@ -6,7 +6,7 @@
         </h2>
         <p class="mt-2 text-lg font-semibold text-gray-600 uppercase dark:text-gray-300">Our Team of Authors</p>
     </div>
-    <div class="container py-2 mx-auto">
+    <div class="container py-2 mx-auto sm:px-20">
         <div class="owl-carousel owl-theme" id="authorsCarousel">
             @foreach ($authors as $author)
                 <div class="single-author-item {{ Route::currentRouteName() == 'web.about' ? 'about' : '' }}">
