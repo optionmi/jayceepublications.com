@@ -45,13 +45,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="flex items-center justify-center w-full text-center sm:w-1/3">
+            {{-- <div class="flex items-center justify-center w-full text-center sm:w-1/3">
                 <div>
                     <h1 class="w-full mx-auto text-xl sm:w-1/2">Get in touch!</h1>
                     <a class="inline-block my-5 text-lg text-brightOrange"
                         href="mailto:{{ App\Models\Config::where('name', 'email')->value('value') }}">{{ App\Models\Config::where('name', 'email')->value('value') }}</a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 
