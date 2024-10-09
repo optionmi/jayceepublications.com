@@ -12,9 +12,9 @@
         <div class="container py-2 mx-auto sm:px-20">
             <div class="owl-carousel owl-theme" id="booksCarousel">
                 @foreach ($series as $ser)
-                    <div class="mx-4 item">
-                        <img class="rounded-lg object-cover sm:h-[485px] 2xl:h-[600px]"
-                            src="{{ asset('series/' . $ser) }}" alt="Book {{ $loop->iteration }}">
+                    <div class="item">
+                        <img class="rounded-lg object-fit sm:h-[485px] 2xl:h-[600px]" src="{{ asset('series/' . $ser) }}"
+                            alt="Book {{ $loop->iteration }}">
                     </div>
                 @endforeach
             </div>
