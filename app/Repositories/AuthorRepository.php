@@ -16,7 +16,7 @@ class AuthorRepository extends BaseRepository implements AuthorRepositoryInterfa
         $this->author = $author;
     }
 
-    public function paginated($start, $length, $sortColumn, $sortDirection, $searchValue, $countOnly = false)
+    public function paginated($columns, $start, $length, $sortColumn, $sortDirection, $searchValue, $countOnly = false)
     {
         $query = $this->author->select('*');
 
@@ -50,17 +50,17 @@ class AuthorRepository extends BaseRepository implements AuthorRepositoryInterfa
 
         $query->skip($start)->take($length);
         $authors = $query->get();
-        $authors = $this->collectionModifier($authors, $start);
+        $authors = $this->collectionModifier($authors, $columns,  $start);
         return $authors;
     }
 
-    public function collectionModifier($authors, $start)
+    public function collectionModifier($authors, $columns,  $start)
     {
-        return $authors->map(function ($author, $key) use ($start) {
+        return $authors->map(function ($author, $key) use ($columns, $start) {
             $author->serial = $start + 1 + $key;
             if ($author->img) $author->avatar = view('admin.authors.media', compact('author'))->render();
             $author->actions = view('admin.authors.actions', compact('author'))->render();
-            $author->setHidden(['id', 'created_at', 'updated_at']);
+            $author->setVisible($columns);
             return $author;
         });
     }

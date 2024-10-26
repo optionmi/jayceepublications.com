@@ -16,7 +16,7 @@ class ConfigRepository extends BaseRepository implements ConfigRepositoryInterfa
         $this->config = $config;
     }
 
-    public function paginated($start, $length, $sortColumn, $sortDirection, $searchValue, $countOnly = false)
+    public function paginated($columns, $start, $length, $sortColumn, $sortDirection, $searchValue, $countOnly = false)
     {
         $query = $this->config->select('*');
 
@@ -53,18 +53,18 @@ class ConfigRepository extends BaseRepository implements ConfigRepositoryInterfa
 
         $query->skip($start)->take($length);
         $configs = $query->get();
-        $configs = $this->collectionModifier($configs, $start);
+        $configs = $this->collectionModifier($configs, $columns, $start);
         return $configs;
     }
 
-    public function collectionModifier($configs, $start)
+    public function collectionModifier($configs, $columns, $start)
     {
-        return $configs->map(function ($config, $key) use ($start) {
+        return $configs->map(function ($config, $key) use ($columns, $start) {
             $config->serial = $start + 1 + $key;
             $config->name = ucfirst($config->name);
             $config->value = $config->name == 'Logo' ? '<img src="' . asset('configs/' . $config->value) . '" class="img-fluid">' : $config->value;
             $config->value = $config->name == 'Catalogue' ? '<a href="' . asset('configs/' . $config->value) . '" target="_blank">View</a>' : $config->value;
-            $config->setHidden(['id', 'created_at', 'updated_at']);
+            $config->setVisible($columns);
             return $config;
         });
     }

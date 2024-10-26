@@ -25,15 +25,40 @@
         {{-- </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a></li> --}}
 
 
-        <li class="nav-item"><a class="nav-link" href="{{ route('admin.bestsellingSeries.index') }}">
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.boards.index') }}">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
-                </svg> Bestselling Series</a></li>
+                </svg> Boards</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.standards.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
+                </svg> Standards</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.subjects.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
+                </svg> Subjects</a></li>
 
         <li class="nav-item"><a class="nav-link" href="{{ route('admin.authors.index') }}">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
                 </svg> Authors</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.books.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
+                </svg> Books</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.bestsellingSeries.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
+                </svg> Bestselling Series</a></li>
+
+        {{-- <li class="nav-item"><a class="nav-link" href="{{ route('admin.authors.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
+                </svg> Authors</a></li> --}}
 
         <li class="nav-item"><a class="nav-link" href="{{ route('admin.articles.index') }}">
                 <svg class="nav-icon">

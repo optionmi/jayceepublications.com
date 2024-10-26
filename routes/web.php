@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\ShopController;
 use App\Http\Controllers\Web\AboutController;
 use App\Http\Controllers\Web\ContactController;
 
@@ -24,6 +26,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+Route::middleware('auth')->name('web.')->group(function () {
+    Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+    Route::get('/shop-data', [ShopController::class, 'filteredRows'])->name('shop.data');
+    Route::get('/book/{book}', [ShopController::class, 'bookDetails'])->name('book');
+    Route::post('/order-confirmation', [ShopController::class, 'orderConfirmation'])->name('order.confirmation');
 });
 
 require __DIR__ . '/auth.php';

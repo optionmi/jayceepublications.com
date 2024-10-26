@@ -16,7 +16,7 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
         $this->article = $article;
     }
 
-    public function paginated($start, $length, $sortColumn, $sortDirection, $searchValue, $countOnly = false)
+    public function paginated($columns, $start, $length, $sortColumn, $sortDirection, $searchValue, $countOnly = false)
     {
         $query = $this->article->select('*');
 
@@ -53,17 +53,17 @@ class ArticleRepository extends BaseRepository implements ArticleRepositoryInter
 
         $query->skip($start)->take($length);
         $articles = $query->get();
-        $articles = $this->collectionModifier($articles, $start);
+        $articles = $this->collectionModifier($articles, $columns,  $start);
         return $articles;
     }
 
-    public function collectionModifier($articles, $start)
+    public function collectionModifier($articles, $columns, $start)
     {
-        return $articles->map(function ($article, $key) use ($start) {
+        return $articles->map(function ($article, $key) use ($columns, $start) {
             $article->serial = $start + 1 + $key;
             if ($article->media->first()) $article->media_file = view('admin.articles.media', compact('article'))->render();
             $article->actions = view('admin.articles.actions', compact('article'))->render();
-            $article->setHidden(['id', 'created_at', 'updated_at', 'media']);
+            $article->setVisible($columns);
             return $article;
         });
     }
