@@ -9,7 +9,9 @@ use App\Models\Subject;
 use App\Models\Standard;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\OrderConfirmationEmail;
 use App\Repositories\BookRepository;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\OrderConfirmationRequest;
 
 class ShopController extends Controller
@@ -73,29 +75,42 @@ class ShopController extends Controller
         $totalAmountReceivable = $totalPrice - $totalDiscount;
         $user = auth()->user();
 
-        $headers = 'From: info@jayceepublications.com' . "\r\n" .
-            'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
-            'Reply-To: ' . $user->email . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+        // $headers = 'From: info@jayceepublications.com' . "\r\n" .
+        //     'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
+        //     'Reply-To: ' . $user->email . "\r\n" .
+        //     'X-Mailer: PHP/' . phpversion();
 
-        // Send email using PHP's mail() function
-        $isMailSent = mail(
-            // 'jayceepublications@gmail.com',
-            'vikalpmishra783@gmailcom',
-            "New Order Confirmation by " . $user->name,
-            view('web.OrderConfirmationEmail', compact(
-                'books',
-                'data',
-                'totalPrice',
-                'totalDiscount',
-                'totalAmountReceivable',
-            ))->render(),
-            $headers
-        );
+        // // Send email using PHP's mail() function
+        // $isMailSent = mail(
+        //     // 'jayceepublications@gmail.com',
+        //     'vikalpmishra783@gmailcom',
+        //     "New Order Confirmation by " . $user->name,
+        //     view('web.OrderConfirmationEmail', compact(
+        //         'books',
+        //         'data',
+        //         'totalPrice',
+        //         'totalDiscount',
+        //         'totalAmountReceivable',
+        //     ))->render(),
+        //     $headers
+        // );
 
+
+        // return $this->jsonResponse(
+        //     $isMailSent,
+        //     'We have received your order. Thank you for choosing us.'
+        // );
+        // Send email using Laravel's Mail facade
+        $isMailSent = Mail::to('jayceepublications@gmail.com')->send(new OrderConfirmationEmail(
+            $books,
+            $data,
+            $totalPrice,
+            $totalDiscount,
+            $totalAmountReceivable
+        ));
 
         return $this->jsonResponse(
-            $isMailSent,
+            (bool)$isMailSent,
             'We have received your order. Thank you for choosing us.'
         );
     }

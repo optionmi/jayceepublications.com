@@ -161,9 +161,8 @@
                         <tr class="border hover:bg-white">
                             <td class="px-5 py-1 border-x">{{ $book->name }}</td>
                             <td class="px-5 py-1 border-x">&#8377; {{ $book->price }}</td>
-                            <td class="grid grid-cols-2 px-5 py-1 border-x">
+                            <td class="px-5 py-1 border-x">
                                 <span>&#8377; {{ ($book->price * $book->discount) / 100 }}</span>
-                                <span>({{ $book->discount }}%)</span>
                             </td>
                             <td class="px-5 py-1 border-x">
                                 &#8377; {{ $book->price - ($book->price * $book->discount) / 100 }}
@@ -179,7 +178,7 @@
                 </tbody>
             </table>
 
-            <p>Total Receivable Amount : &#8377; {{ $totalAmountReceivable }}</p>
+            <p class="text-lg font-bold">Total Receivable Amount : &#8377; {{ $totalAmountReceivable }}</p>
 
             <div>
                 <p class="font-semibold">Shipping Address:</p>
