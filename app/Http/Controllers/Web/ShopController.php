@@ -74,12 +74,14 @@ class ShopController extends Controller
         $user = auth()->user();
 
         $headers = 'From: info@jayceepublications.com' . "\r\n" .
+            'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
             'Reply-To: ' . $user->email . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
         // Send email using PHP's mail() function
         $isMailSent = mail(
-            'jayceepublications@gmail.com',
+            // 'jayceepublications@gmail.com',
+            'vikalpmishra783@gmailcom',
             "New Order Confirmation by " . $user->name,
             view('web.OrderConfirmationEmail', compact(
                 'books',
