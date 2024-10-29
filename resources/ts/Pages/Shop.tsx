@@ -22,7 +22,9 @@ export default function Shop({ boards, standards, subjects, csrfToken }: any) {
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
 
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(
+        JSON.parse(sessionStorage.getItem("cart")) || []
+    );
     const [products, setProducts] = useState([]);
 
     function addToCart(productId: number) {
@@ -51,8 +53,8 @@ export default function Shop({ boards, standards, subjects, csrfToken }: any) {
         Board?: string | null;
         Class?: string | null;
         Subject?: string | null;
-        start: string;
-        length: string;
+        start: number;
+        length: number;
     };
     const applyFilters = () => {
         const newParams: ParamsType = { start, length };

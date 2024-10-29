@@ -16,6 +16,10 @@ Route::name('web.')->group(function () {
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+    Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+    Route::get('/shop-data', [ShopController::class, 'filteredRows'])->name('shop.data');
+    Route::get('/book/{book}', [ShopController::class, 'bookDetails'])->name('book');
 });
 
 Route::get('/dashboard', function () {
@@ -28,9 +32,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::middleware('auth')->name('web.')->group(function () {
-    Route::get('/shop', [ShopController::class, 'index'])->name('shop');
-    Route::get('/shop-data', [ShopController::class, 'filteredRows'])->name('shop.data');
-    Route::get('/book/{book}', [ShopController::class, 'bookDetails'])->name('book');
     Route::post('/order-confirmation', [ShopController::class, 'orderConfirmation'])->name('order.confirmation');
 });
 

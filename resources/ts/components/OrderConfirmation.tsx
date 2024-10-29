@@ -27,16 +27,20 @@ export function OrderConfirmation({
     csrfToken,
 }: Props) {
     const [totalPrice, setTotalPrice] = useState(0);
-    const [address, setAddress] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [pin, setPin] = useState("");
+    const [address, setAddress] = useState(
+        sessionStorage.getItem("address") || ""
+    );
+    const [city, setCity] = useState(sessionStorage.getItem("city") || "");
+    const [state, setState] = useState(sessionStorage.getItem("state") || "");
+    const [pin, setPin] = useState(sessionStorage.getItem("pin") || "");
     const [validatationErrors, setValidatvalidatationErrors] = useState([]);
-    const [dialogOpen, setDialogOpen] = useState(false);
+    const [dialogOpen, setDialogOpen] = useState(
+        sessionStorage.getItem("dialogOpen") || false
+    );
 
     useEffect(() => {
         setTotalPrice(
-            products.reduce((total, product) => {
+            products.reduce((total: number, product) => {
                 if (cart.includes(product.id)) {
                     total +=
                         product.price -
@@ -45,7 +49,7 @@ export function OrderConfirmation({
                 return total;
             }, 0)
         );
-    }, [cart]);
+    }, [cart, []]);
 
     async function handleOrderConfirmation() {
         if (!address || !city || !state || !pin) {
@@ -60,10 +64,22 @@ export function OrderConfirmation({
             },
             body: JSON.stringify({ cart, address, city, state, pin }),
         });
-        const data = await response.json();
-        setDialogOpen(false);
-        toast(data.message);
-        setCart([]);
+        if (response.redirected) {
+            // Set values in session
+            sessionStorage.setItem("address", address);
+            sessionStorage.setItem("city", city);
+            sessionStorage.setItem("state", state);
+            sessionStorage.setItem("pin", pin);
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            sessionStorage.setItem("dialogOpen", JSON.stringify(true));
+            window.location.href = response.url;
+        } else {
+            const data = await response.json();
+            setDialogOpen(false);
+            toast(data.message);
+            setCart([]);
+            sessionStorage.clear();
+        }
     }
 
     return (
@@ -120,6 +136,7 @@ export function OrderConfirmation({
                         className="w-11/12 mx-auto mt-2"
                         id="address"
                         placeholder="Street Address*"
+                        value={address}
                         onChange={(e) => setAddress(e.target.value)}
                         required
                     />
@@ -127,6 +144,7 @@ export function OrderConfirmation({
                         className="w-11/12 mx-auto mt-2"
                         id="city"
                         placeholder="City*"
+                        value={city}
                         onChange={(e) => setCity(e.target.value)}
                         required
                     />
@@ -134,6 +152,7 @@ export function OrderConfirmation({
                         className="w-11/12 mx-auto mt-2"
                         id="state"
                         placeholder="State*"
+                        value={state}
                         onChange={(e) => setState(e.target.value)}
                         required
                     />
@@ -142,6 +161,7 @@ export function OrderConfirmation({
                         id="pin"
                         type="number"
                         placeholder="PIN*"
+                        value={pin}
                         onChange={(e) => setPin(e.target.value)}
                         required
                     />
