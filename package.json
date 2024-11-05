@@ -46,6 +46,7 @@
         "datatables.net-dt": "^2.1.8",
         "flickity": "^3.0.0",
         "jquery": "^3.7.1",
+        "lodash": "^4.17.21",
         "lucide-react": "^0.453.0",
         "next-themes": "^0.3.0",
         "owl.carousel": "^2.3.4",

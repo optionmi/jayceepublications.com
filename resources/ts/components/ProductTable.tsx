@@ -70,7 +70,7 @@ export default function ProductTable({
                         >
                             <a
                                 href={route("web.book", product.id)}
-                                target="_blank"
+                                // target="_blank"
                             >
                                 <div className="relative">
                                     <img
@@ -78,9 +78,11 @@ export default function ProductTable({
                                         src={product.imgUrl}
                                         alt=""
                                     />
-                                    <p className="absolute p-1 text-sm font-semibold text-white bg-red-500 rounded-md shadow-sm top-2 right-2">
-                                        {product.discount}% off
-                                    </p>
+                                    {product.discount > 0 && (
+                                        <p className="absolute p-1 text-sm font-semibold text-white bg-red-500 rounded-md shadow-sm top-2 right-2">
+                                            {product.discount}% off
+                                        </p>
+                                    )}
                                 </div>
                                 <CardContent className="w-full px-0 py-2">
                                     <div className="flex items-start justify-center w-11/12 mx-auto">
@@ -100,14 +102,16 @@ export default function ProductTable({
                                                         100}
                                             </span>
                                         </div>
-                                        <div className="flex justify-center gap-1">
-                                            <span className="text-sm">
-                                                MRP:
-                                            </span>
-                                            <span className="text-sm line-through">
-                                                &#8377;{product.price}
-                                            </span>
-                                        </div>
+                                        {product.discount > 0 && (
+                                            <div className="flex justify-center gap-1">
+                                                <span className="text-sm">
+                                                    MRP:
+                                                </span>
+                                                <span className="text-sm line-through">
+                                                    &#8377;{product.price}
+                                                </span>
+                                            </div>
+                                        )}
                                     </div>
                                 </CardContent>
                             </a>

@@ -52,11 +52,12 @@ class ShopController extends Controller
         $boards = request()->get('Board');
         $standards = request()->get('Class');
         $subjects = request()->get('Subject');
+        $search = request()->get('Search');
         $boards = $boards  ? explode(',', $boards) : null;
         $standards = $standards  ? explode(',', $standards) : null;
         $subjects = $subjects  ? explode(',', $subjects) : null;
 
-        return $repository->reactTableData($columns, $start, $length, $boards, $standards, $subjects);
+        return $repository->reactTableData($columns, $start, $length, $boards, $standards, $subjects, $search);
     }
 
     public function bookDetails(Book $book)

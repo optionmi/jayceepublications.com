@@ -27,6 +27,7 @@
 
     </div>
     @include('web.partials.footer')
+    @yield('bottom-scripts')
 </body>
 
 </html>

@@ -24,6 +24,7 @@ type CardProps = React.ComponentProps<typeof Card> & {
     filters: { [key: string]: any };
     setFilters: any;
     setPage: any;
+    applyFilters: any;
 };
 
 export function SidebarCard({
@@ -32,6 +33,7 @@ export function SidebarCard({
     filters,
     setFilters,
     setPage,
+    applyFilters,
     ...props
 }: CardProps) {
     function onChangeHandler(
@@ -43,19 +45,36 @@ export function SidebarCard({
         // console.log(cardData.data[index], { isChecked });
         cardData.data[index].isChecked = isChecked;
         // console.log(cardData.data[index], { isChecked });
+        console.log({ isChecked });
+
         if (isChecked) {
-            setFilters((prev: any) => ({
-                ...prev,
-                [name]: [...(prev[name] || []), id],
-            }));
+            setFilters((prev: any) => {
+                applyFilters({
+                    ...prev,
+                    [name]: [...(prev[name] || []), id],
+                });
+                return {
+                    ...prev,
+                    [name]: [...(prev[name] || []), id],
+                };
+            });
         } else {
-            setFilters((prev: any) => ({
-                ...prev,
-                [name]: prev[name].filter((item: number) => item !== id),
-            }));
+            setFilters((prev: any) => {
+                applyFilters({
+                    ...prev,
+                    [name]: prev[name].filter((item: number) => item != id),
+                });
+                return {
+                    ...prev,
+                    [name]: prev[name].filter((item: number) => item != id),
+                };
+            });
         }
-        setPage(1);
+        setPage(() => {
+            return 1;
+        });
     }
+    console.log(cardData);
 
     return (
         <Card className={cn(className)} {...props}>

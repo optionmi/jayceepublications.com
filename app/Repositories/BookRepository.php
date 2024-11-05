@@ -82,9 +82,15 @@ class BookRepository extends BaseRepository implements BookRepositoryInterface
         });
     }
 
-    public function reactTableData($columns, $start, $length, $boards = null, $standards = null, $subjects = null)
+    public function reactTableData($columns, $start, $length, $boards = null, $standards = null, $subjects = null, $searchValue = null)
     {
         $query = $this->book->select('*');
+
+        if (!empty($searchValue)) {
+            $query->where(function ($q) use ($searchValue) {
+                $q->orWhere('name', 'LIKE', "%$searchValue%");
+            });
+        }
 
         if ($boards) {
             $query->whereIn('board_id', $boards);
