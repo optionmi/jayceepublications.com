@@ -67,7 +67,7 @@ export default function Shop({ boards, standards, subjects, csrfToken }: any) {
         if (filters.Subject.length)
             newParams.Subject = filters.Subject.join(",");
         if (filters.Search != "") newParams.Search = filters.Search;
-        console.log(filters);
+        // console.log(filters);
 
         setSearchParams(() => {
             fetchFilteredData(newParams);

@@ -69,23 +69,38 @@ class ShopController extends Controller
     {
         $data = $request->validated();
         $books = Book::whereIn('id', $data['cart'])->get();
-        $totalPrice = $books->sum('price');
-        $totalDiscount = $books->reduce(function ($carry, $book) {
-            return $carry + ($book->price * $book->discount / 100);
-        });
+        $cartItems = $data['quantity'];
+        $totalPrice = 0;
+        $totalDiscount = 0;
+        $totalQuantity = 0;
+        $totalFinalPrice = 0;
+
+        foreach ($books as $book) {
+            $book->quantity = $cartItems[$book->id]; // Get quantity for each book
+            $bookTotal = $book->price * $book->quantity;
+            $discountAmount = $book->price * $book->discount / 100 * $book->quantity;
+
+            $totalPrice += $bookTotal;
+            $totalDiscount += $discountAmount;
+            $totalQuantity += $book->quantity;
+            $totalFinalPrice += $book->price - $book->price * $book->discount / 100;
+        }
+
         $totalAmountReceivable = $totalPrice - $totalDiscount;
-        $user = auth()->user();
+
         $isMailSent = Mail::to('jayceepublications@gmail.com')->send(new OrderConfirmationEmail(
             $books,
             $data,
             $totalPrice,
             $totalDiscount,
-            $totalAmountReceivable
+            $totalAmountReceivable,
+            $totalQuantity,
+            $totalFinalPrice
         ));
 
         return $this->jsonResponse(
             (bool)$isMailSent,
-            'We have received your order. Thank you for choosing us.'
+            'Thank you for your order! Our team will be in touch with you shortly to confirm the details.'
         );
     }
 }

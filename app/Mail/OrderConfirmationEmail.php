@@ -19,17 +19,21 @@ class OrderConfirmationEmail extends Mailable
     public $totalPrice;
     public $totalDiscount;
     public $totalAmountReceivable;
+    public $totalQuantity;
+    public $totalFinalPrice;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($books, $data, $totalPrice, $totalDiscount, $totalAmountReceivable)
+    public function __construct($books, $data, $totalPrice, $totalDiscount, $totalAmountReceivable, $totalQuantity, $totalFinalPrice)
     {
         $this->books = $books;
         $this->data = $data;
         $this->totalPrice = $totalPrice;
         $this->totalDiscount = $totalDiscount;
         $this->totalAmountReceivable = $totalAmountReceivable;
+        $this->totalQuantity = $totalQuantity;
+        $this->totalFinalPrice = $totalFinalPrice;
     }
 
     /**

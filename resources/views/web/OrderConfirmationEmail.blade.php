@@ -151,28 +151,36 @@
                 <thead>
                     <tr class="border">
                         <th class="px-5 py-2 border-x text-start">Book</th>
-                        <th class="px-5 py-2 border-x text-start">MRP</th>
-                        <th class="px-5 py-2 border-x text-start">Discount</th>
-                        <th class="px-5 py-2 border-x text-start">Discounted Price</th>
+                        {{-- <th class="px-5 py-2 border-x text-start">MRP</th> --}}
+                        {{-- <th class="px-5 py-2 border-x text-start">Discount</th> --}}
+                        <th class="px-5 py-2 border-x text-start">Final Price</th>
+                        <th class="px-5 py-2 border-x text-start">Quantity</th>
+                        <th class="px-5 py-2 border-x text-start">Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($books as $book)
                         <tr class="border hover:bg-white">
                             <td class="px-5 py-1 border-x">{{ $book->name }}</td>
-                            <td class="px-5 py-1 border-x">&#8377; {{ $book->price }}</td>
-                            <td class="px-5 py-1 border-x">
+                            {{-- <td class="px-5 py-1 border-x">&#8377; {{ $book->price }}</td> --}}
+                            {{-- <td class="px-5 py-1 border-x">
                                 <span>&#8377; {{ ($book->price * $book->discount) / 100 }}</span>
-                            </td>
+                            </td> --}}
                             <td class="px-5 py-1 border-x">
                                 &#8377; {{ $book->price - ($book->price * $book->discount) / 100 }}
+                            </td>
+                            <td class="px-5 py-1 border-x">{{ $book->quantity }}</td>
+                            <td class="px-5 py-1 border-x">
+                                &#8377; {{ ($book->price - ($book->price * $book->discount) / 100) * $book->quantity }}
                             </td>
                         </tr>
                     @endforeach
                     <tr class="border hover:bg-white">
                         <td class="px-5 py-2 font-bold border-x">Total Amount</td>
-                        <td class="px-5 py-2 font-bold border-x">&#8377; {{ $totalPrice }}</td>
-                        <td class="px-5 py-2 font-bold border-x">&#8377; {{ $totalDiscount }}</td>
+                        {{-- <td class="px-5 py-2 font-bold border-x">&#8377; {{ $totalPrice }}</td> --}}
+                        {{-- <td class="px-5 py-2 font-bold border-x">&#8377; {{ $totalDiscount }}</td> --}}
+                        <td class="px-5 py-2 font-bold border-x">&#8377; {{ $totalFinalPrice }}</td>
+                        <td class="px-5 py-2 font-bold border-x">{{ $totalQuantity }}</td>
                         <td class="px-5 py-2 font-bold border-x">&#8377; {{ $totalAmountReceivable }}</td>
                     </tr>
                 </tbody>

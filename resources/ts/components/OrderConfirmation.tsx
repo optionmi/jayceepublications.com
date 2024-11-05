@@ -8,6 +8,27 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableFooter,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table";
+
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useEffect, useState } from "react";
@@ -37,19 +58,66 @@ export function OrderConfirmation({
     const [dialogOpen, setDialogOpen] = useState(
         sessionStorage.getItem("dialogOpen") || false
     );
+    const [quantity, setQuantity] = useState(
+        cart.reduce(
+            (acc: any, productId: any) => ({ ...acc, [productId]: 1 }),
+            {}
+        )
+    );
+
+    const handleQuantityChange = (productId, value) => {
+        setQuantity((prevQuantities) => ({
+            ...prevQuantities,
+            [productId]: Number(value),
+        }));
+    };
+
+    // useEffect(() => {
+    //     setTotalPrice(
+    //         products.reduce((total: number, product) => {
+    //             if (cart.includes(product.id)) {
+    //                 total +=
+    //                     (product.price -
+    //                         (product.price * product.discount) / 100) *
+    //                     parseInt(quantity[product.id]);
+    //             }
+    //             return total;
+    //         }, 0)
+    //     );
+    //     setQuantity(
+    //         cart.reduce(
+    //             (acc: any, productId: any) => ({ ...acc, [productId]: 1 }),
+    //             {}
+    //         )
+    //     );
+    // }, [cart]);
+
+    useEffect(() => {
+        // Add new quantities for products that are in the cart but not in the `quantity` state
+        setQuantity((prevQuantities) => {
+            const updatedQuantities = { ...prevQuantities };
+            cart.forEach((productId) => {
+                if (!updatedQuantities[productId]) {
+                    updatedQuantities[productId] = 1; // Default quantity
+                }
+            });
+            return updatedQuantities;
+        });
+    }, [cart]); // Dependency array ensures this updates when cart or products change
 
     useEffect(() => {
         setTotalPrice(
-            products.reduce((total: number, product) => {
+            products.reduce((total, product) => {
                 if (cart.includes(product.id)) {
                     total +=
-                        product.price -
-                        (product.price * product.discount) / 100;
+                        (product.price -
+                            (product.price * product.discount) / 100) *
+                        quantity[product.id];
                 }
                 return total;
             }, 0)
         );
-    }, [cart, []]);
+    }, [quantity, []]);
 
     async function handleOrderConfirmation() {
         if (!address || !city || !state || !pin) {
@@ -62,7 +130,7 @@ export function OrderConfirmation({
                 "Content-Type": "application/json",
                 "X-CSRF-Token": csrfToken,
             },
-            body: JSON.stringify({ cart, address, city, state, pin }),
+            body: JSON.stringify({ cart, address, city, state, pin, quantity }),
         });
         if (response.redirected) {
             // Set values in session
@@ -92,7 +160,7 @@ export function OrderConfirmation({
                     Place Order
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:w-[40rem]">
+            <DialogContent className="sm:max-w-5xl">
                 <DialogHeader>
                     <DialogTitle>Order Details</DialogTitle>
                     <DialogDescription>
@@ -100,78 +168,160 @@ export function OrderConfirmation({
                         us.
                     </DialogDescription>
                 </DialogHeader>
-                <div>
-                    <h1 className="mb-2 font-semibold text-md">Your Cart</h1>
-                    {products.map(
-                        (product) =>
-                            cart.includes(product.id) && (
-                                <div
-                                    className="grid w-11/12 grid-cols-5 mx-auto"
-                                    key={product.id}
-                                >
-                                    <span className="col-span-4 text-gray-600">
-                                        {product.name}
-                                    </span>
-                                    <span className="text-gray-700">
-                                        &#8377;{" "}
-                                        {product.price -
-                                            (product.price * product.discount) /
-                                                100}
-                                    </span>
-                                </div>
-                            )
-                    )}
-                    <div className="grid w-11/12 grid-cols-5 py-1 mx-auto my-2 border-gray-600 border-y">
-                        <span className="col-span-4 text-gray-800 ">Total</span>
-                        <span className="text-gray-900 ">
-                            &#8377; {totalPrice}
-                        </span>
+                <div className="flex flex-col gap-5 sm:flex-row">
+                    <div className="w-full sm:w-1/2">
+                        <h1 className="mb-2 font-semibold">Your Cart</h1>
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="">Name</TableHead>
+                                    <TableHead>Price</TableHead>
+                                    <TableHead>Quantity</TableHead>
+                                    <TableHead className="text-right">
+                                        Total
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {products.map(
+                                    (product: any) =>
+                                        cart.includes(product.id) && (
+                                            <TableRow key={product.id}>
+                                                <TableCell className="font-medium">
+                                                    {product.name}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {product.price -
+                                                        (product.price *
+                                                            product.discount) /
+                                                            100}
+                                                </TableCell>
+                                                <TableCell>
+                                                    <Select
+                                                        value={
+                                                            quantity[product.id]
+                                                        }
+                                                        onValueChange={(e) =>
+                                                            handleQuantityChange(
+                                                                product.id,
+                                                                e
+                                                            )
+                                                        }
+                                                    >
+                                                        <SelectTrigger className="">
+                                                            <SelectValue
+                                                                placeholder={
+                                                                    quantity[
+                                                                        product
+                                                                            .id
+                                                                    ]
+                                                                }
+                                                            />
+                                                        </SelectTrigger>
+                                                        <SelectContent>
+                                                            <SelectGroup>
+                                                                <SelectLabel>
+                                                                    Quantity
+                                                                </SelectLabel>
+                                                                {Array.from(
+                                                                    {
+                                                                        length: 100,
+                                                                    },
+                                                                    (_, i) =>
+                                                                        i + 1
+                                                                ).map((num) => (
+                                                                    <SelectItem
+                                                                        key={
+                                                                            num
+                                                                        }
+                                                                        value={
+                                                                            num
+                                                                        }
+                                                                    >
+                                                                        {num}
+                                                                    </SelectItem>
+                                                                ))}
+                                                            </SelectGroup>
+                                                        </SelectContent>
+                                                    </Select>
+                                                </TableCell>
+                                                <TableCell className="text-right">
+                                                    &#8377;{" "}
+                                                    {(
+                                                        (product.price -
+                                                            (product.price *
+                                                                product.discount) /
+                                                                100) *
+                                                        quantity[product.id]
+                                                    ).toFixed(2)}
+                                                </TableCell>
+                                            </TableRow>
+                                        )
+                                )}
+                            </TableBody>
+                            <TableFooter>
+                                <TableRow className="font-semibold">
+                                    <TableCell colSpan={3}>Total</TableCell>
+                                    <TableCell className="text-right">
+                                        &#8377; {totalPrice}
+                                    </TableCell>
+                                </TableRow>
+                            </TableFooter>
+                        </Table>
                     </div>
-                </div>
-                <div>
-                    <Label htmlFor="address" className="font-semibold text-md">
-                        Shipping Address
-                    </Label>
-                    <Input
-                        className="w-11/12 mx-auto mt-2"
-                        id="address"
-                        placeholder="Street Address*"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                        required
-                    />
-                    <Input
-                        className="w-11/12 mx-auto mt-2"
-                        id="city"
-                        placeholder="City*"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        required
-                    />
-                    <Input
-                        className="w-11/12 mx-auto mt-2"
-                        id="state"
-                        placeholder="State*"
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                        required
-                    />
-                    <Input
-                        className="w-11/12 mx-auto mt-2"
-                        id="pin"
-                        type="number"
-                        placeholder="PIN*"
-                        value={pin}
-                        onChange={(e) => setPin(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    {validatationErrors.map((error) => (
-                        <p className="text-center text-red-500" key={error}>
-                            {error}
-                        </p>
-                    ))}
+                    <div className="w-full sm:w-1/2">
+                        <div>
+                            <Label
+                                htmlFor="address"
+                                className="font-semibold text-md"
+                            >
+                                Shipping Address
+                            </Label>
+                            <Input
+                                className="w-11/12 mx-auto mt-2"
+                                id="address"
+                                placeholder="Street Address*"
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                                required
+                            />
+                            <Input
+                                className="w-11/12 mx-auto mt-2"
+                                id="city"
+                                placeholder="City*"
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}
+                                required
+                            />
+                            <Input
+                                className="w-11/12 mx-auto mt-2"
+                                id="state"
+                                placeholder="State*"
+                                value={state}
+                                onChange={(e) => setState(e.target.value)}
+                                required
+                            />
+                            <Input
+                                className="w-11/12 mx-auto mt-2"
+                                id="pin"
+                                type="number"
+                                placeholder="PIN*"
+                                value={pin}
+                                onChange={(e) => setPin(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            {validatationErrors.map((error) => (
+                                <p
+                                    className="text-center text-red-500"
+                                    key={error}
+                                >
+                                    {error}
+                                </p>
+                            ))}
+                        </div>
+                    </div>
                 </div>
                 <DialogFooter>
                     <Button type="submit" onClick={handleOrderConfirmation}>

@@ -45,7 +45,7 @@ export function SidebarCard({
         // console.log(cardData.data[index], { isChecked });
         cardData.data[index].isChecked = isChecked;
         // console.log(cardData.data[index], { isChecked });
-        console.log({ isChecked });
+        // console.log({ isChecked });
 
         if (isChecked) {
             setFilters((prev: any) => {
@@ -74,7 +74,7 @@ export function SidebarCard({
             return 1;
         });
     }
-    console.log(cardData);
+    // console.log(cardData);
 
     return (
         <Card className={cn(className)} {...props}>

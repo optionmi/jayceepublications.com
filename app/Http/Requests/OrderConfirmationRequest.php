@@ -29,6 +29,7 @@ class OrderConfirmationRequest extends FormRequest
       'city' => 'required',
       'state' => 'required',
       'pin' => 'required',
+      'quantity' => 'required',
     ];
   }
 }
