@@ -85,8 +85,8 @@ export default function ProductTable({
                                     )}
                                 </div>
                                 <CardContent className="w-full px-0 py-2">
-                                    <div className="flex items-start justify-center w-11/12 mx-auto">
-                                        <p className="2xl:text-lg">
+                                    <div className="flex items-start justify-center w-11/12 mx-auto text-sm">
+                                        <p className="2xl:text-[1rem]">
                                             {product.name}
                                         </p>
                                     </div>
