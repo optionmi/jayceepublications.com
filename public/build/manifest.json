@@ -242,7 +242,7 @@
     "isEntry": true
   },
   "resources/js/admin.js": {
-    "file": "assets/admin-DzZo55sR.js",
+    "file": "assets/admin-Bv4_UVRi.js",
     "name": "admin",
     "src": "resources/js/admin.js",
     "isEntry": true,
@@ -335,7 +335,7 @@
     ]
   },
   "resources/ts/Pages/Shop.tsx": {
-    "file": "assets/Shop-oXbQuhzP.js",
+    "file": "assets/Shop-CzNBkAXo.js",
     "name": "Shop",
     "src": "resources/ts/Pages/Shop.tsx",
     "isDynamicEntry": true,
@@ -360,7 +360,7 @@
     ]
   },
   "resources/ts/app.tsx": {
-    "file": "assets/app-DilQVN5a.js",
+    "file": "assets/app-B1XRSp-R.js",
     "name": "app",
     "src": "resources/ts/app.tsx",
     "isEntry": true,

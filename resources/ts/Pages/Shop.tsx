@@ -100,7 +100,7 @@ export default function Shop({ boards, standards, subjects, csrfToken }: any) {
         ]);
         applyFilters(filters);
         // fetchFilteredData();
-    }, []);
+    }, [page]);
 
     async function fetchFilteredData(searchParams: string) {
         const query = new URLSearchParams(searchParams).toString();
@@ -117,6 +117,33 @@ export default function Shop({ boards, standards, subjects, csrfToken }: any) {
         setCart([]);
         sessionStorage.removeItem("cart");
     }
+
+    const [quantity, setQuantity] = useState(
+        cart.reduce(
+            (acc: any, productId: any) => ({ ...acc, [productId]: 1 }),
+            {}
+        )
+    );
+
+    const handleQuantityChange = (productId, value) => {
+        setQuantity((prevQuantities) => ({
+            ...prevQuantities,
+            [productId]: Number(value),
+        }));
+    };
+
+    useEffect(() => {
+        // Add new quantities for products that are in the cart but not in the `quantity` state
+        setQuantity((prevQuantities) => {
+            const updatedQuantities = { ...prevQuantities };
+            cart.forEach((productId) => {
+                if (!updatedQuantities[productId]) {
+                    updatedQuantities[productId] = 1; // Default quantity
+                }
+            });
+            return updatedQuantities;
+        });
+    }, [cart]); // Dependency array ensures this updates when cart or products change
 
     return (
         <main className="container flex flex-col gap-5 py-10 mx-auto sm:flex-row">
@@ -152,6 +179,8 @@ export default function Shop({ boards, standards, subjects, csrfToken }: any) {
                                     setCart={setCart}
                                     products={products}
                                     csrfToken={csrfToken}
+                                    quantity={quantity}
+                                    handleQuantityChange={handleQuantityChange}
                                 />
                                 {cart.length > 0 && (
                                     <Button
@@ -173,6 +202,8 @@ export default function Shop({ boards, standards, subjects, csrfToken }: any) {
                             cart={cart}
                             addToCart={addToCart}
                             removeFromCart={removeFromCart}
+                            quantity={quantity}
+                            handleQuantityChange={handleQuantityChange}
                         />
                     </CardContent>
                     {pages > 1 && (

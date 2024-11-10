@@ -39,6 +39,8 @@ type Props = {
     setCart: any;
     products: any;
     csrfToken: any;
+    quantity: any;
+    handleQuantityChange: any;
 };
 
 export function OrderConfirmation({
@@ -46,6 +48,8 @@ export function OrderConfirmation({
     setCart,
     products,
     csrfToken,
+    quantity,
+    handleQuantityChange,
 }: Props) {
     const [totalPrice, setTotalPrice] = useState(0);
     const [address, setAddress] = useState(
@@ -58,19 +62,6 @@ export function OrderConfirmation({
     const [dialogOpen, setDialogOpen] = useState(
         sessionStorage.getItem("dialogOpen") || false
     );
-    const [quantity, setQuantity] = useState(
-        cart.reduce(
-            (acc: any, productId: any) => ({ ...acc, [productId]: 1 }),
-            {}
-        )
-    );
-
-    const handleQuantityChange = (productId, value) => {
-        setQuantity((prevQuantities) => ({
-            ...prevQuantities,
-            [productId]: Number(value),
-        }));
-    };
 
     // useEffect(() => {
     //     setTotalPrice(
@@ -93,19 +84,6 @@ export function OrderConfirmation({
     // }, [cart]);
 
     useEffect(() => {
-        // Add new quantities for products that are in the cart but not in the `quantity` state
-        setQuantity((prevQuantities) => {
-            const updatedQuantities = { ...prevQuantities };
-            cart.forEach((productId) => {
-                if (!updatedQuantities[productId]) {
-                    updatedQuantities[productId] = 1; // Default quantity
-                }
-            });
-            return updatedQuantities;
-        });
-    }, [cart]); // Dependency array ensures this updates when cart or products change
-
-    useEffect(() => {
         setTotalPrice(
             products.reduce((total, product) => {
                 if (cart.includes(product.id)) {
@@ -114,7 +92,7 @@ export function OrderConfirmation({
                             (product.price * product.discount) / 100) *
                         quantity[product.id];
                 }
-                return total;
+                return Number(total.toFixed(2));
             }, 0)
         );
     }, [quantity, []]);

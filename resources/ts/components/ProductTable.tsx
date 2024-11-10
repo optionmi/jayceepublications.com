@@ -17,6 +17,16 @@ import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { ProductsSkeleton } from "./ProductsSkeleton";
 import { useState } from "react";
 
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+
 type ProductTableProps = {
     products: any;
     length: number;
@@ -24,6 +34,8 @@ type ProductTableProps = {
     cart: any;
     addToCart: any;
     removeFromCart: any;
+    quantity: any;
+    handleQuantityChange: any;
 };
 
 export default function ProductTable({
@@ -33,6 +45,8 @@ export default function ProductTable({
     cart,
     addToCart,
     removeFromCart,
+    quantity,
+    handleQuantityChange,
 }: ProductTableProps) {
     return (
         <>
@@ -115,7 +129,44 @@ export default function ProductTable({
                                     </div>
                                 </CardContent>
                             </a>
-                            <CardFooter className="pb-4">
+                            <CardFooter className="flex flex-col gap-2 pb-4">
+                                <div className="flex items-center gap-2">
+                                    <span>Quantity: </span>
+                                    <Select
+                                        value={quantity[product.id]}
+                                        onValueChange={(e) =>
+                                            handleQuantityChange(product.id, e)
+                                        }
+                                    >
+                                        <SelectTrigger className="">
+                                            <SelectValue
+                                                placeholder={
+                                                    quantity[product.id] || 1
+                                                }
+                                            />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectGroup>
+                                                <SelectLabel>
+                                                    Quantity
+                                                </SelectLabel>
+                                                {Array.from(
+                                                    {
+                                                        length: 100,
+                                                    },
+                                                    (_, i) => i + 1
+                                                ).map((num) => (
+                                                    <SelectItem
+                                                        key={num}
+                                                        value={num}
+                                                    >
+                                                        {num}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
                                 <div>
                                     {cart.includes(product.id) ? (
                                         <Button
