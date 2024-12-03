@@ -70,6 +70,10 @@
                     <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
                 </svg> Configurations</a></li>
 
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.users.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('coreui/vendors/@coreui/icons/svg/free.svg#cil-list-rich') }}"></use>
+                </svg> Users</a></li>
         {{-- @if (!$user->hasRestriction('can_manage_infopages')) --}}
         {{-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">

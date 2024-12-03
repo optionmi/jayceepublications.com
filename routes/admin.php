@@ -49,4 +49,8 @@ Route::group(['middleware' => ['auth']], function () {
   // Configs
   Route::resource('configs', ConfigController::class);
   Route::get('/configs-data', [ConfigController::class, 'dataTable'])->name('configs.datatable');
+
+  // Users
+  Route::resource('users', UserController::class);
+  Route::get('/users-data', [UserController::class, 'dataTable'])->name('users.datatable');
 });

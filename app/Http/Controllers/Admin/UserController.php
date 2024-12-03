@@ -59,30 +59,4 @@ class UserController extends Controller
 
         return response()->json(['message' => 'Password Reset Successful']);
     }
-
-    public function mute(Request $request, User $user)
-    {
-        $permissionNames = ['can_post', 'can_comment', 'can_reply'];
-        $permissionIds = Permission::whereIn('name', $permissionNames)->pluck('id')->toArray();
-
-        if (empty($permissionIds)) {
-            return response()->json(['error' => 1, 'message' => 'Permissions not found'], 404);
-        }
-
-        $user->restrictions()->sync($permissionIds, false);
-        return response()->json(['message' => 'User muted successfully']);
-    }
-
-    public function unMute(Request $request, User $user)
-    {
-        $permissionNames = ['can_post', 'can_comment', 'can_reply'];
-        $permissionIds = Permission::whereIn('name', $permissionNames)->pluck('id')->toArray();
-
-        if (empty($permissionIds)) {
-            return response()->json(['error' => 1, 'message' => 'Permissions not found'], 404);
-        }
-
-        $user->restrictions()->detach($permissionIds);
-        return response()->json(['message' => 'User unmuted successfully']);
-    }
 }
