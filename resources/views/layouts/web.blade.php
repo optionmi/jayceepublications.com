@@ -17,6 +17,20 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/owl.css', 'resources/js/owl.js'])
     @yield('top-scripts')
 
+    {{-- @production --}}
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5MLP6N5FZR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-5MLP6N5FZR');
+    </script>
+    {{-- @endproduction --}}
+
 </head>
 
 <body class="font-sans antialiased">
