@@ -239,6 +239,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             ? "subject_name"
                             : $(this).text() === "Author"
                             ? "author_name"
+                            : $(this).text() === "Media"
+                            ? "media_file"
                             : $(this).text().toLowerCase(),
                     name: $(this).text(),
                     searchable:
