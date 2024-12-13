@@ -19,13 +19,14 @@ import "quill/dist/quill.snow.css";
 //     placeholder: "Compose an epic...",
 //     theme: "snow",
 // });
-
 const quill1 = new Quill("#content", {
     theme: "snow",
 });
+
+quill1.on("text-change", function (delta, oldDelta, source) {
+    $("#hiddenContent").val(quill1.root.innerHTML);
+});
+
 $(".modal").on("shown.coreui.modal", function () {
     quill1.root.innerHTML = $("#hiddenContent").val();
-    quill1.on("text-change", function (delta, oldDelta, source) {
-        $("#hiddenContent").val(quill1.root.innerHTML);
-    });
 });
