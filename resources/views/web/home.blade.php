@@ -30,12 +30,12 @@
                     Educational
                     Solutions</p>
             </div>
-            <div class="container mx-auto my-5 gap-y-5">
+            <div class="container gap-y-5 mx-auto my-5">
                 <div class="owl-carousel owl-theme" id="featuresCarousel">
                     @foreach ($features as $feature)
                         <div
-                            class="p-6 bg-gray-300 border border-gray-200 rounded-lg shadow-md min-h-96 dark:bg-gray-800 dark:border-gray-700">
-                            <div class="flex items-center justify-center mt-5">
+                            class="p-6 bg-gray-300 rounded-lg border border-gray-200 shadow-md min-h-96 dark:bg-gray-800 dark:border-gray-700">
+                            <div class="flex justify-center items-center mt-5">
                                 <div class="w-36">
                                     <img class="rounded-t-lg" src="{{ asset('img/1.png') }}" alt="" />
                                 </div>
@@ -73,7 +73,7 @@
                     Innovative Learning
                     Tools</p>
             </div>
-            <div class="container px-5 py-2 mx-auto text-lg text-center lg:px-32 text-gray-50">
+            <div class="container px-5 py-2 mx-auto text-lg text-center text-gray-50 lg:px-32">
                 <p>SHRI JAGDISH CHANDER GOYAL (J.C. Goyal) founded JAY CEE PUBLICATIONS in the early 1960s, dedicating over
                     six decades to educational excellence. With co-founder Rajiv Goyal and the next generation led by Aditya
                     Goyal, the company continues to innovate, blending tradition with modernity. Serving over 5,000 schools
@@ -82,7 +82,7 @@
                     CEE strives to shape the future of education through passion, progress, and purpose.
                 </p>
                 <div class="flex items-center justify-center my-5 mt-10 font-semibold text-[1rem]">
-                    <a class="px-4 py-2 border rounded-md shadow-md hover:bg-brightOrange border-brightOrange"
+                    <a class="px-4 py-2 rounded-md border shadow-md hover:bg-brightOrange border-brightOrange"
                         href="{{ route('web.about') }}">Learn
                         More</a>
                 </div>
@@ -110,9 +110,12 @@
                     <!-- News Cards -->
                     @foreach ($articles as $article)
                         <div class="overflow-hidden bg-white rounded-lg shadow-lg">
-                            <img class="object-cover w-full h-48"
-                                src="{{ $article->media->first() ? asset('articles/img/' . $article->media->first()->file) : 'https://via.placeholder.com/300x200' }}"
-                                alt="{{ $article->title }}">
+                            @if ($article->media->first())
+                                @include('admin.articles.media')
+                            @else
+                                <img class="object-cover w-full h-48" src="https://via.placeholder.com/300x200"
+                                    alt="{{ $article->title }}">
+                            @endif
                             <div class="p-6">
                                 <h3 class="mb-2 text-xl font-semibold text-gray-800">{{ $article->title }}</h3>
                                 <div class="mb-4 text-sm text-gray-600">{!! Str::limit($article->content, 100) !!}</div>

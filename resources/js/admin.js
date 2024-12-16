@@ -314,5 +314,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     });
 
+    $("[name='src_type\\[\\]']").on("change", function (e) {
+        if ($(this).val() == "url") {
+            $(this).parent().next().next().addClass("d-none");
+            $(this).parent().next().next().next().removeClass("d-none");
+        } else {
+            $(this).parent().next().next().next().addClass("d-none");
+            $(this).parent().next().next().removeClass("d-none");
+        }
+    });
+
     // DOMContentLoaded
 });

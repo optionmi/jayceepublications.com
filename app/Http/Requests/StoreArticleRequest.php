@@ -24,9 +24,12 @@ class StoreArticleRequest extends FormRequest
   public function rules()
   {
     return [
-      'title' => 'required',
-      'content' => 'required',
-      'media_file' => 'file|mimes:jpeg,png,jpg', //,gif,mp4,mov,ogg',
+      'title' => 'required|string|max:255',
+      'content' => 'required|string',
+      'src_type.*' => 'required|in:file,url',
+      'media_type.*' => 'required|in:img,vid',
+      'media_file.*' => 'nullable|file|mimes:jpeg,png,jpg,mp4,mov|max:20480', // Allow images/videos up to 20MB
+      'media_url.*' => 'nullable|url', // Validate YouTube or other URLs
     ];
   }
 }

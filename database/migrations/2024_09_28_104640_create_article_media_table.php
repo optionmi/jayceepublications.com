@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('article_id')->constrained()->onDelete('cascade');
             $table->string('file')->nullable();
             $table->enum('type', ['img', 'vid'])->nullable()->comment('img=Image, vid=Video');
+            $table->enum('src_type', ['file', 'url'])->nullable()->comment('file=File, url=URL');
             $table->timestamps();
         });
     }

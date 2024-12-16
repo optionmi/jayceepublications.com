@@ -20,9 +20,117 @@
                         </div>
                         <input class="updateDataField" id="hiddenContent" type="hidden" name="content">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="articleMedia">Media File</label>
-                        <input class="form-control" id="articleMedia" type="file" name="media_file" accept="image/*">
+                    <div class="mb-3 row">
+                        <hr>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="src_type0">Source type</label>
+                            <select class="form-control" name="src_type[]" id="src_type0">
+                                <option value="file">File</option>
+                                <option value="url">URL</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="media_type0">Media type</label>
+                            <select class="form-control" name="media_type[]" id="media_type0">
+                                <option value="img">Image</option>
+                                <option value="vid">Video</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="media_file0">Media File</label>
+                            <input class="form-control" id="media_file0" type="file" name="media_file[]"
+                                accept="">
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12 d-none">
+                            <label class="form-label" for="media_url0">Media URL</label>
+                            <input class="form-control" id="media_url0" type="url" name="media_url[]"
+                                placeholder="https://www.example.com/">
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="mb-3 row">
+                        <hr>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="src_type1">Source type</label>
+                            <select class="form-control" name="src_type[]" id="src_type1">
+                                <option value="file">File</option>
+                                <option value="url">URL</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="media_type1">Media type</label>
+                            <select class="form-control" name="media_type[]" id="media_type1">
+                                <option value="img">Image</option>
+                                <option value="vid">Video</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="media_file1">Media File</label>
+                            <input class="form-control" id="media_file1" type="file" name="media_file[]"
+                                accept="">
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12 d-none">
+                            <label class="form-label" for="media_url1">Media URL</label>
+                            <input class="form-control" id="media_url1" type="url" name="media_url[]"
+                                placeholder="https://www.example.com/">
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="mb-3 row">
+                        <hr>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="src_type2">Source type</label>
+                            <select class="form-control" name="src_type[]" id="src_type2">
+                                <option value="file">File</option>
+                                <option value="url">URL</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="media_type2">Media type</label>
+                            <select class="form-control" name="media_type[]" id="media_type2">
+                                <option value="img">Image</option>
+                                <option value="vid">Video</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="media_file2">Media File</label>
+                            <input class="form-control" id="media_file2" type="file" name="media_file[]"
+                                accept="">
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12 d-none">
+                            <label class="form-label" for="media_url2">Media URL</label>
+                            <input class="form-control" id="media_url2" type="url" name="media_url[]"
+                                placeholder="https://www.example.com/">
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="mb-3 row">
+                        <hr>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="src_type3">Source type</label>
+                            <select class="form-control" name="src_type[]" id="src_type3">
+                                <option value="file">File</option>
+                                <option value="url">URL</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="media_type3">Media type</label>
+                            <select class="form-control" name="media_type[]" id="media_type3">
+                                <option value="img">Image</option>
+                                <option value="vid">Video</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12">
+                            <label class="form-label" for="media_file3">Media File</label>
+                            <input class="form-control" id="media_file3" type="file" name="media_file[]"
+                                accept="">
+                        </div>
+                        <div class="mb-3 col-lg-4 col-sm-12 d-none">
+                            <label class="form-label" for="media_url3">Media URL</label>
+                            <input class="form-control" id="media_url3" type="url" name="media_url[]"
+                                placeholder="https://www.example.com/">
+                        </div>
+                        <hr>
                     </div>
                 </div>
                 <div class="modal-footer">
