@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\VacancyController;
 use App\Http\Controllers\Admin\StandardController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BestsellingSeriesController;
@@ -53,4 +54,8 @@ Route::group(['middleware' => ['auth']], function () {
   // Users
   Route::resource('users', UserController::class);
   Route::get('/users-data', [UserController::class, 'dataTable'])->name('users.datatable');
+
+  // Vacancies
+  Route::resource('vacancies', VacancyController::class);
+  Route::get('/vacancies-data', [VacancyController::class, 'dataTable'])->name('vacancies.datatable');
 });

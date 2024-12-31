@@ -133,22 +133,59 @@ document.addEventListener("DOMContentLoaded", function () {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    // Display success or error message based on response
-                    const messageDiv =
-                        document.getElementById("responseMessage");
-
-                    if (!data.error) {
-                        messageDiv.innerHTML = `<p class="bg-green-600 rounded-lg font-bold text-white p-5">${data.message}</p>`;
-                        contactForm.reset(); // Reset form after successful submission
-                    } else {
-                        messageDiv.innerHTML = `<p class="bg-red-600 rounded-lg font-bold text-white p-5">${data.message}</p>`;
-                    }
+                    displayResponse(contactForm, data.error, data.message);
                 })
                 .catch((error) => {
                     // Handle any errors
-                    const messageDiv = document.getElementById("message");
-                    messageDiv.innerHTML = `<p class="bg-red-600 rounded-lg font-bold text-white p-5">An error occurred. Please try again later.</p>`;
+                    displayResponse(
+                        contactForm,
+                        true,
+                        "An error occurred. Please try again later."
+                    );
+                    console.error("Error:", error);
+                });
+        });
+
+    // Grab the form element
+    const careersForm = document.getElementById("careersForm");
+
+    // Add submit event listener
+    if (careersForm)
+        careersForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Gather form data
+            const formData = new FormData(careersForm);
+            const route = careersForm.getAttribute("action");
+
+            // Send an AJAX request
+            fetch(route, {
+                method: "POST",
+                body: formData,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    displayResponse(careersForm, data.error, data.message);
+                })
+                .catch((error) => {
+                    // Handle any errors
+                    displayResponse(
+                        careersForm,
+                        true,
+                        "An error occurred. Please try again later."
+                    );
                     console.error("Error:", error);
                 });
         });
 });
+
+function displayResponse(form, error, message) {
+    // Display success or error message based on response
+    const messageDiv = document.getElementById("responseMessage");
+    if (!error) {
+        messageDiv.innerHTML = `<p class="bg-green-600 rounded-lg font-bold text-white p-5">${message}</p>`;
+        form.reset(); // Reset form after successful submission
+    } else {
+        messageDiv.innerHTML = `<p class="bg-red-600 rounded-lg font-bold text-white p-5">${message}</p>`;
+    }
+}

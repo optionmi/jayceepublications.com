@@ -1,32 +1,32 @@
 <section class="bg-white dark:bg-brightOrange dark:text-white sm:h-12">
-    <div class="flex flex-col items-center justify-between gap-5 p-3 mx-auto sm:flex-row max-w-7xl sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-5 justify-between items-center p-3 mx-auto max-w-7xl sm:flex-row sm:px-6 lg:px-8">
         <div>
             <h1>Jay Cee Publications</h1>
         </div>
-        <ul class="flex flex-wrap justify-between text-sm gap-y-2 sm:gap-5">
-            <li class="flex items-center gap-2">
+        <ul class="flex flex-wrap gap-y-2 justify-between text-sm sm:gap-5">
+            <li class="flex gap-2 items-center">
                 <i class="fas fa-phone"></i>
                 <a
                     href="tel:{{ App\Models\Config::where('name', 'phone')->value('value') }}">{{ App\Models\Config::where('name', 'phone')->value('value') }}</a>
             </li>
-            <li class="flex items-center gap-2">
+            <li class="flex gap-2 items-center">
                 <i class="fas fa-brands fa-whatsapp"></i>
                 <a
                     href="whatsapp://send?phone={{ App\Models\Config::where('name', 'whatsapp')->value('value') }}">{{ App\Models\Config::where('name', 'whatsapp')->value('value') }}</a>
             </li>
-            <li class="flex items-center gap-2">
+            <li class="flex gap-2 items-center">
                 <i class="fas fa-envelope"></i>
                 <a
                     href="mailto:{{ App\Models\Config::where('name', 'email')->value('value') }}">{{ App\Models\Config::where('name', 'email')->value('value') }}</a>
             </li>
-            <li class="flex items-center gap-2">
+            <li class="flex gap-2 items-center">
                 <i class="fas fa-store"></i>
                 <a
                     href="{{ asset('configs/' . App\Models\Config::where('name', 'catalogue')->value('value')) }}">Catalogue</a>
             </li>
             @auth
                 <li class="relative" data-twe-dropdown-ref>
-                    <button class="flex items-center gap-2" type="button" id="dropdownMenuButton1"
+                    <button class="flex gap-2 items-center" type="button" id="dropdownMenuButton1"
                         data-twe-dropdown-toggle-ref aria-expanded="false">
                         <i class="fas fa-user"></i> {{ ucfirst(auth()->user()->name) }}
                         <span class="ms-2 w-2 [&>svg]:h-5 [&>svg]:w-5">
@@ -40,23 +40,23 @@
                     <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-base shadow-lg data-[twe-dropdown-show]:block dark:bg-surface-dark"
                         aria-labelledby="dropdownMenuButton1" data-twe-dropdown-menu-ref>
                         <li>
-                            <a class="block w-full px-4 py-2 text-sm font-normal bg-white whitespace-nowrap text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                            <a class="block px-4 py-2 w-full text-sm font-normal whitespace-nowrap bg-white text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
                                 href="{{ route('profile.edit') }}">Profile</a>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button
-                                    class="block w-full px-4 py-2 text-sm font-normal bg-white whitespace-nowrap text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                                    class="block px-4 py-2 w-full text-sm font-normal whitespace-nowrap bg-white text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
                                     type="submit" data-twe-dropdown-item-ref>Log Out</button>
                             </form>
                         </li>
                     </ul>
                 </li>
             @else
-                <li class="flex items-center gap-2">
+                <li class="flex gap-2 items-center">
                     <i class="fas fa-user"></i>
                     <a href="{{ route('login') }}">Log In</a>
                 </li>
-                <li class="flex items-center gap-2">
+                <li class="flex gap-2 items-center">
                     <i class="fas fa-user"></i>
                     <a href="{{ route('register') }}">Register</a>
                 </li>
@@ -67,9 +67,9 @@
 <header class="sticky -top-[1px] z-30 h-24 bg-navy">
     <div class="p-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <!-- Main navigation container -->
-        <nav class="relative flex items-center justify-between w-full flex-nowrap text-neutral-500 shadow-dark-mild hover:text-neutral-700 focus:text-neutral-700 lg:flex-wrap lg:justify-start"
+        <nav class="flex relative flex-nowrap justify-between items-center w-full text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 lg:flex-wrap lg:justify-start"
             data-twe-navbar-ref>
-            <div class="flex flex-wrap items-center justify-between w-full px-3">
+            <div class="flex flex-wrap justify-between items-center px-3 w-full">
                 <div class="ms-2">
                     <a class="text-2xl font-bold text-white" href="#">
                         @include('components.application-logo')
@@ -113,6 +113,10 @@
                         <li class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" data-twe-nav-item-ref>
                             <a class="{{ request()->routeIs('web.contact') ? 'text-white hover:underline decoration-brightOrange lg:px-2' : 'p-0 transition duration-200 hover:underline decoration-brightOrange text-white/60 hover:text-white/80 hover:ease-in-out focus:text-white/80 active:text-white/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2' }}"
                                 href="{{ route('web.contact') }}" data-twe-nav-link-ref>Contact Us</a>
+                        </li>
+                        <li class="mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" data-twe-nav-item-ref>
+                            <a class="{{ request()->routeIs('web.careers') ? 'text-white hover:underline decoration-brightOrange lg:px-2' : 'p-0 transition duration-200 hover:underline decoration-brightOrange text-white/60 hover:text-white/80 hover:ease-in-out focus:text-white/80 active:text-white/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80 lg:px-2' }}"
+                                href="{{ route('web.careers') }}" data-twe-nav-link-ref>Careers</a>
                         </li>
                     </ul>
                 </div>

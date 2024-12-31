@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ShopController;
 use App\Http\Controllers\Web\AboutController;
+use App\Http\Controllers\Web\CareersController;
 use App\Http\Controllers\Web\ContactController;
 
 Route::name('web.')->group(function () {
@@ -16,6 +17,8 @@ Route::name('web.')->group(function () {
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+    Route::get('/careers', [CareersController::class, 'index'])->name('careers');
+    Route::post('/careers', [CareersController::class, 'store'])->name('careers.store');
 
     Route::get('/shop', [ShopController::class, 'index'])->name('shop');
     Route::get('/shop-data', [ShopController::class, 'filteredRows'])->name('shop.data');
