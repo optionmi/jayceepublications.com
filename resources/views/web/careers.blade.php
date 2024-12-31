@@ -37,9 +37,11 @@
                         Position</label>
                     <select class="block w-full p-2 mt-1 border border-gray-300 rounded dark:text-white dark:bg-gray-800"
                         name="job_position" id="job_position" required>
-                        @foreach ($vacancies as $vacancy)
+                        @forelse ($vacancies as $vacancy)
                             <option value="{{ $vacancy->name }}">{{ $vacancy->name }}</option>
-                        @endforeach
+                        @empty
+                            <option value="" disabled>No Vacancies Available</option>
+                        @endforelse
                     </select>
                 </div>
                 <div class="mb-4">
