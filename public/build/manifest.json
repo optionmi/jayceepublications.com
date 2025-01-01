@@ -232,7 +232,7 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-C2VHqQ-m.css",
+    "file": "assets/app-BISsDbtc.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -242,7 +242,7 @@
     "isEntry": true
   },
   "resources/js/admin.js": {
-    "file": "assets/admin-qBzKNWnN.js",
+    "file": "assets/admin-BRPiDH2u.js",
     "name": "admin",
     "src": "resources/js/admin.js",
     "isEntry": true,
@@ -251,7 +251,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-C0wMJhhr.js",
+    "file": "assets/app-DxrCC6Dx.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -335,7 +335,7 @@
     ]
   },
   "resources/ts/Pages/Shop.tsx": {
-    "file": "assets/Shop-DTA4H9EC.js",
+    "file": "assets/Shop-C3cHpWmS.js",
     "name": "Shop",
     "src": "resources/ts/Pages/Shop.tsx",
     "isDynamicEntry": true,
@@ -346,7 +346,7 @@
       "_index-Bjxvq7_n.js"
     ],
     "css": [
-      "assets/app-C2VHqQ-m.css"
+      "assets/app-BISsDbtc.css"
     ],
     "assets": [
       "assets/fa-brands-400-O7nZalfM.woff2",
@@ -360,7 +360,7 @@
     ]
   },
   "resources/ts/app.tsx": {
-    "file": "assets/app-nQB2Begg.js",
+    "file": "assets/app-BSN9y_oa.js",
     "name": "app",
     "src": "resources/ts/app.tsx",
     "isEntry": true,
@@ -373,7 +373,7 @@
       "resources/ts/Pages/Shop.tsx"
     ],
     "css": [
-      "assets/app-C2VHqQ-m.css"
+      "assets/app-BISsDbtc.css"
     ],
     "assets": [
       "assets/fa-brands-400-O7nZalfM.woff2",
