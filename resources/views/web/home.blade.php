@@ -128,4 +128,6 @@
             </div>
         </section>
     @endif
+
+    @include('web.partials.popup')
 @endsection
