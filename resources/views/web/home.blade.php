@@ -30,12 +30,12 @@
                     Educational
                     Solutions</p>
             </div>
-            <div class="container gap-y-5 mx-auto my-5">
+            <div class="container mx-auto my-5 gap-y-5">
                 <div class="owl-carousel owl-theme" id="featuresCarousel">
                     @foreach ($features as $feature)
                         <div
-                            class="p-6 bg-gray-300 rounded-lg border border-gray-200 shadow-md min-h-96 dark:bg-gray-800 dark:border-gray-700">
-                            <div class="flex justify-center items-center mt-5">
+                            class="p-6 bg-gray-300 border border-gray-200 rounded-lg shadow-md min-h-96 dark:bg-gray-800 dark:border-gray-700">
+                            <div class="flex items-center justify-center mt-5">
                                 <div class="w-36">
                                     <img class="rounded-t-lg" src="{{ asset('img/1.png') }}" alt="" />
                                 </div>
@@ -82,7 +82,7 @@
                     CEE strives to shape the future of education through passion, progress, and purpose.
                 </p>
                 <div class="flex items-center justify-center my-5 mt-10 font-semibold text-[1rem]">
-                    <a class="px-4 py-2 rounded-md border shadow-md hover:bg-brightOrange border-brightOrange"
+                    <a class="px-4 py-2 border rounded-md shadow-md hover:bg-brightOrange border-brightOrange"
                         href="{{ route('web.about') }}">Learn
                         More</a>
                 </div>
@@ -129,5 +129,5 @@
         </section>
     @endif
 
-    @include('web.partials.popup')
+    {{-- @include('web.partials.popup') --}}
 @endsection
